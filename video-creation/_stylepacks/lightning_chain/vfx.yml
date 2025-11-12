@@ -1,0 +1,33 @@
+name: Lightning Chain VFX
+niagara_presets:
+  - 圓弧雷鏈生成
+  - 電暈過曝脈衝
+  - 地面枝狀放電
+unity_vfx_graph:
+  - ArcLoop.vfx
+  - ChainLeap.vfx
+  - OzoneBloom.vfx
+houdini_flipbooks:
+  - lightning_flash_cluster
+  - ozone_mist_swirl
+  - finger_arc_ignition
+shader_settings:
+  bolt_core_thickness: 0.45
+  afterglow_decay: 0.65
+  spark_density: 1.8
+  refraction_ripple_intensity: 0.3
+sdf_settings:
+  stickiness: 0.25
+  jump_arc_delay: 0.15
+  impact_scorch_radius: 1.2
+bloom_control:
+  idle: 0.18
+  trigger_peak: 0.82
+  cooldown: 0.3
+audio_sync:
+  zap_triggers: align_arc_leaps
+  bass_hit: accent_phase_interference
+notes:
+  - 雷鏈跨目標時需保留殘影拖曳 3 frame
+  - 地面放電使用形狀配對剪與光閃過門銜接
+  - HUD 元素需與鏈路節點一一對應，避免漂移

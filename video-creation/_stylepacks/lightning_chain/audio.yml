@@ -1,0 +1,29 @@
+name: Lightning Chain Audio
+core_layers:
+  - ozone_drone_bed
+  - crackle_triplets
+  - sub_thump_sync
+peak_events:
+  - timestamp: ignition
+    sfx: finger_arc_snap
+    level_db: -6
+    stereo_width: 100
+  - timestamp: convergence
+    sfx: thunder_iris
+    level_db: -3
+    stereo_width: 140
+rhythmic_grid:
+  bpm: 120
+  subdivision: eighths
+  swing: 0.04
+sidechain:
+  trigger_bus: impact_bus
+  target: ozone_drone_bed
+  reduction_db: 2
+dynamics:
+  crest_factor: 10
+  transient_protection_db: -1
+notes:
+  - 120 BPM 節奏需呼應每 0.5s 電弧節點亮起
+  - 扣指瞬間加上金屬尖銳高頻 6kHz
+  - 殘光收束後留 1.5s 氣流與餘電尾音
