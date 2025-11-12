@@ -1,0 +1,13 @@
+name: Sci-Fi Realism Look
+lut: Neutral+BlueShadows
+contrast: medium_high
+highlight_control: neon_balance
+reflection_priority: metal_glass
+color_temperature_range: [3600, 4200]
+bloom:
+  base: 0.2
+  peak: 0.6
+notes:
+  - 允許霓虹混光，保留暗部細節
+  - 金屬與玻璃反射優先處理
+  - 夜景需維持主體分離

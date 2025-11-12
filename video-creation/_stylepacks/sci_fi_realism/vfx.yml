@@ -1,0 +1,22 @@
+name: Sci-Fi Realism VFX
+niagara_presets:
+  - 能量環
+  - 粒子回彈
+  - SDF 發光邊緣
+unity_vfx_graph:
+  - EnergyRing.vfx
+  - ReboundParticles.vfx
+  - SDFGlowEdge.vfx
+houdini_flipbooks:
+  - electric_arc
+  - impact_smoke
+bloom_control:
+  idle: 0.2
+  trigger_peak: 0.6
+  cooldown: 0.3
+audio_sync:
+  low_freq_pulse: drives_emission_rate
+  transient_hit: adds_burst
+notes:
+  - 將 Audio 閾值設在 -12 dB 觸發發射率上升
+  - 冷卻階段以粒子密度逐步下降呈現

@@ -1,0 +1,12 @@
+name: Anime Fantasy Look
+noise_reduction: clean_edges
+saturation: vivid_controlled_skin
+line_enhancement: strong_outline
+color_palette:
+  primaries: [pastel_magenta, teal, warm_gold]
+  skin_tone: protected
+motion_blur_shutter: 150
+notes:
+  - 邊緣俐落，維持動畫質感
+  - 色彩飽和但控制膚色
+  - 建議搭配 24–35mm 誇張空間感

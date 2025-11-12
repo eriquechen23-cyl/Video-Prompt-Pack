@@ -1,0 +1,18 @@
+name: Sci-Fi Realism Audio
+bpm: 96
+low_freq_pulse:
+  range_hz: [40, 80]
+  modulation: emission_rate
+transient_layer:
+  description: 金屬感瞬音對應能量釋放
+  gain: -8
+drone_bed:
+  texture: synth_pad
+  width: stereo_wide
+mix_guidelines:
+  lufs: -14
+  true_peak: -1
+  sidechain: vfx_trigger
+notes:
+  - 低頻脈衝驅動能量護盾亮度
+  - 觸發瞬間添加 transient 以提升張力
