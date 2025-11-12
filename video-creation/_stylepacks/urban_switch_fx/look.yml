@@ -1,0 +1,15 @@
+name: Urban Switch FX Look
+noise_reduction: balanced_motion
+saturation: neutral_skin_pop
+line_enhancement: motion_defined
+color_palette:
+  primaries: [charcoal, neon_lime, crimson]
+  accents: [steel_blue, tungsten_warm]
+  skin_tone: preserved
+motion_blur_shutter: 170
+exposure_bias: +0.2
+notes:
+  - 保留夜間城市對比，皮膚自然略暖
+  - 動作拖影需兼顧服裝切換殘影
+  - 配合雨霧與火星可用 Fresnel rim light
+  - 建議同場景多機位以利無縫隱剪
