@@ -1,0 +1,13 @@
+name: Gravity Fold Look
+lut: Graviton-Contrast
+saturation_adjust: -0.08
+contrast: high
+highlights: cool_violet
+shadows: deep_teal
+texture: polished_stone
+chromatic_aberration: radial_split
+lens_distortion: subtle_barrel_pull
+notes:
+  - 針對奇點邊緣加入光線彎曲暈帶
+  - 膚色維持 58 IRE，避免被冷色吞沒
+  - 景深扭曲時需保持前景銳利

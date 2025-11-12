@@ -1,0 +1,27 @@
+name: Gravity Fold VFX
+niagara_presets:
+  - 空間折射波紋
+  - 奇點粒子匯聚
+  - 反向震波塵幕
+unity_vfx_graph:
+  - SingularityCore.vfx
+  - InvertShock.vfx
+  - SDFCollapse.vfx
+houdini_flipbooks:
+  - gravity_pulse
+  - debris_reverse
+sdf_settings:
+  pull_radius: 4.5
+  compression_ratio: 0.85
+  invert_release_ratio: 1.6
+bloom_control:
+  idle: 0.25
+  trigger_peak: 0.7
+  cooldown: 0.4
+audio_sync:
+  low_freq_pulse: modulate_pull_strength
+  transient_release: trigger_shockwave
+notes:
+  - 使用 Signed Distance Field 動態更新碰撞體以吸附碎岩
+  - 景深扭曲需與鏡頭焦距同步避免跳變
+  - 反轉階段請加上碎石離心向量力場

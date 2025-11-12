@@ -1,0 +1,13 @@
+name: Lightning Chain Look
+lut: Ionized-Arc
+saturation_adjust: 0.12
+contrast: high
+highlights: electric_blue
+shadows: graphite_cool
+texture: rain_slick_leather
+chromatic_aberration: tangential_blue_shift
+lens_distortion: controlled_pincushion
+notes:
+  - 強調藍白電弧的高亮輪廓，保留肌膚 52 IRE 微暖
+  - 地面濕潤反光需加入局部高光刷動
+  - 霧氣與電暈採用分層曝光避免過曝

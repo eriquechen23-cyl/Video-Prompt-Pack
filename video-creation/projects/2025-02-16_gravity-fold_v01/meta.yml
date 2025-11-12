@@ -1,0 +1,14 @@
+project: 2025-02-16_gravity-fold_v01
+runtime_seconds: 15
+aspect_ratio: 16x9
+frame_rate: 24
+stylepacks:
+  - real_cinema
+  - gravity_fold
+seed: 851724
+bpm: 64
+bloom_peak: 0.55
+audio_sync_threshold_db: -11
+notes:
+  - 0-5s 吸附；5-10s 壓縮；10-15s 反轉震波
+  - 確認 Signed Distance Field 吸附與空間折射同步

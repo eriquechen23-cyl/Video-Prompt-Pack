@@ -1,0 +1,15 @@
+project: 2025-02-17_lightning-chain-barrage_v01
+runtime_seconds: 15
+aspect_ratio: 16x9
+frame_rate: 24
+stylepacks:
+  - sci_fi_realism
+  - lightning_chain
+seed: 427915
+bpm: 120
+bloom_peak: 0.68
+audio_sync_threshold_db: -10
+notes:
+  - 12 幕節奏，每幕約 1.2 秒，維持 120 BPM 電弧律動
+  - 轉場以光閃剪、遮擋剪、圓形形狀配對剪結合
+  - 藍白雷鏈需與手勢畫圈→扣指收束動作同步
