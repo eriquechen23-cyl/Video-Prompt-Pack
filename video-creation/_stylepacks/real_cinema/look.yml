@@ -1,0 +1,12 @@
+name: Real Cinema Look
+lut: Skin-Priority
+saturation_adjust: -0.05  # 去飽和 5–8%
+skin_tone_ire: 60
+contrast: soft
+highlights: warm
+shadows: cool_blue
+texture: natural_grain
+notes:
+  - 膚色優先校正
+  - 微膠片顆粒
+  - 高光暖、陰影微藍

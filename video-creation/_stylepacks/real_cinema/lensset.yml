@@ -1,0 +1,12 @@
+name: Real Cinema Lens Set
+primary_focals: [35, 50, 75]
+shutter_angle: 180
+dolly:
+  move: glide_in
+  speed_ratio: 0.8
+handheld_usage: 0.03
+support: slider_or_stabilizer
+usage_notes:
+  - 室內情緒戲採滑軌緩推
+  - 側向平移保持視線連續
+  - 聚焦於自然膚質呈現
