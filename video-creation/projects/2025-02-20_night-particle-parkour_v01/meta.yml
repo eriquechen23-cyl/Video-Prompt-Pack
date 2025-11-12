@@ -1,0 +1,16 @@
+project: 2025-02-20_night-particle-parkour_v01
+runtime_seconds: 15
+aspect_ratio: 16x9
+frame_rate: 24
+stylepacks:
+  - real_cinema
+  - urban_switch_fx
+seed: 472915
+bpm: 112
+bloom_peak: 0.68
+audio_sync_threshold_db: -10
+notes:
+  - 8 幕連續跑酷，每幕約 1.8 秒內收束，粒子換裝節奏貼齊 24fps 分鏡
+  - 換裝粒子沿動作方向掃身，服裝維持素面無標誌
+  - 全片禁止任何可讀文字、品牌、商標與浮水印
+  - 夜間濕地倒影與金屬高光需控光避免過曝，保留城市遠景光河
