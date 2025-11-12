@@ -94,6 +94,6 @@
 - **攝影**：使用 Real Cinema 鏡頭組（35mm、50mm、75mm）為主，依幕別切換穩定器、滑軌、臂架、FPV；手持晃動控制在 3% 以內。
 - **光影控管**：採 Real Cinema Look 進行去飽和 5–8%，Bloom 峰值維持在 0.68 以下；粒子亮度依 Particle Switch Sweep 攻擊 0.15 秒、釋放 0.25 秒 控制。
 - **服裝管理**：A→E 共 5 套素面服飾，以布料質感與剪裁區分，保持無 Logo 與無文字。
-- **VFX Pipeline**：使用 UE5 Niagara、Unity VFX Graph 與 Houdini Flipbook 製作微粒、火花與換裝特效，換裝節點預留 8 幅 Handle 以維持無縫拼接。
+- **VFX Pipeline**：使用 UE5 Niagara、Unity VFX Graph 與 Houdini Flipbook 製作微粒、火花與換裝特效，換裝節點預留 8 幀 Handle 以維持無縫拼接。
 - **音效**：遵循核心音訊指引打造腳步、衣料、風切與城市低鳴層疊，112 BPM 對齊粒子脈衝。
 - **QA**：檢查 Bloom、粒子貼合與服裝連戲；確保全片無可讀文字與浮水印，並記錄種子與 LUT。
