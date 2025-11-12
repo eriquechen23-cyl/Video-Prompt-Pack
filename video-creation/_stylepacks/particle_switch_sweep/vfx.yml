@@ -1,0 +1,32 @@
+name: Particle Switch Sweep
+engines:
+  ue5:
+    niagara_presets:
+      - ribbon_glow_trail
+      - speedline_slice
+      - embers_pulse_spark
+  unity:
+    vfx_graph:
+      - SweepWrap.vfx
+      - VelocityStreaks.vfx
+  houdini_flipbooks:
+    - micro_dust_burst
+    - spark_sheet_loop
+    - volumetric_glow_pulse
+shader_controls:
+  fresnel_edge: 0.6
+  bloom_cap: 0.68
+  dissolve_bandwidth: 0.18
+  speedline_opacity: 0.72
+transitions:
+  - 粒子拂掃遮擋切換服裝，沿動作方向掃過維持 6–8 帧重疊
+  - 殘影合體於換裝後 3 帧內收束，避免雙影漂移
+  - 空氣塵粒與速度線協助動態過門，不做硬切
+safety:
+  - 粒子貼合模型法線，禁止穿透皮膚與道具
+  - 火花亮度控制在 120 nits，避免過曝
+  - 無文字、無商標、無介面 HUD 元素
+notes:
+  - 換裝 ≤5 套，以色溫與材質差異呈現，不添加圖案
+  - 粒子顏色以暖橘核心、冷藍外緣，呼應 Real Cinema 夜景
+  - Bloom 攻擊 0.15s、釋放 0.25s，配合音樂節奏 112 BPM
