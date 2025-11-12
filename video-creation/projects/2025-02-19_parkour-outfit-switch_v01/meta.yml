@@ -1,0 +1,15 @@
+project: 2025-02-19_parkour-outfit-switch_v01
+runtime_seconds: 15
+aspect_ratio: 16x9
+frame_rate: 24
+stylepacks:
+  - real_cinema
+  - urban_switch_fx
+seed: 934215
+bpm: 108
+bloom_peak: 0.72
+audio_sync_threshold_db: -10
+notes:
+  - 服裝切換沿用同版型不同色設定
+  - 需預備雨幕、布幕、逆光等遮擋道具以完成隱剪
+  - 動作高風險鏡位可先減速拍攝後回速
