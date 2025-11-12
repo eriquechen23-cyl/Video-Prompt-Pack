@@ -1,0 +1,20 @@
+name: Gravity Fold Audio
+core_layers:
+  - infra_bass_loop
+  - stone_scrape_swells
+  - inverted_impact_suck
+peak_events:
+  - timestamp: release
+    sfx: gravity_whiplash
+    level_db: -4
+    stereo_width: 120
+low_freq_management:
+  sub_ceiling_db: -6
+  lfe_emphasis: 45Hz
+sidechain:
+  trigger_bus: percussion_bus
+  target: infra_bass_loop
+  reduction_db: 3
+notes:
+  - 低頻層需貼合掌心脈衝動畫
+  - 反轉瞬間使用逆轉氣流音並快速衰減
