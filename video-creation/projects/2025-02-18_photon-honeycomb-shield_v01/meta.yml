@@ -1,0 +1,15 @@
+project: 2025-02-18_photon-honeycomb-shield_v01
+runtime_seconds: 15
+aspect_ratio: 16x9
+frame_rate: 24
+stylepacks:
+  - sci_fi_realism
+  - gravity_fold
+seed: 718245
+bpm: 50
+bloom_peak: 0.72
+audio_sync_threshold_db: -10
+notes:
+  - 12 幕節奏設計，平均每幕 1.2 秒，配合蜂巢盾展收動作
+  - 動態亮度從暖白至金色漸進，維持能量護盾質感
+  - 轉場以格子線對齊剪、光塵擦鏡剪、閃白壓拍結合
