@@ -11,16 +11,21 @@ This repository stores reusable templates and style packs for video prompt creat
   - `anime_fantasy/`
   - `arcane_gambler/`
   - `frost_gambler/`
-- `video-creation/assets/` – Placeholder folders for shared references (faces, flipbooks, LUTs, audio).
-- `video-creation/projects/` – Project-specific configurations and scripts following the naming convention.
+- `video-creation/projects/` – Prompt deliverables (`prompt.md`) stored per project directory using the `YYYY-MM-DD_slug_v0X` pattern.
+- `video-creation/scripts/` – Script workspaces that mirror `projects/` naming so each prompt has a one-to-one, versioned narrative source.
 
 ## Workflow Guidelines
 
 1. **Always read `AGENT.md` files** in the relevant directory tree before making changes. Project prompts must embed any referenced `_core` or `_stylepacks` content directly inside `prompt.md` (no shortcuts or links).
-2. **Duplicate and adapt templates** from `_core` when drafting new prompts. Keep the structure intact so downstream tools can parse scene beats and technical specs.
-3. **Select or create a style pack** in `_stylepacks/` that matches the target aesthetic. Add new packs (e.g., `frost_gambler`) when the look or FX palette differs from existing sets.
-4. **Store only `prompt.md`** in each project directory. Omit meta files unless future `AGENT.md` instructions specify otherwise.
-5. **Version projects** using the `YYYY-MM-DD_slug_v0X` pattern, logging seeds and sync parameters inside the prompt if needed for reproducibility.
+2. **Start every project in `video-creation/scripts/`** by duplicating `_templates/script_full.md` into `scripts/YYYY-MM-DD_slug_v0X/script.md`. Capture logline, beat sheet, pacing, and explicit references to the `_core` and `_stylepacks` elements you will embed later.
+3. **Select or create a style pack** in `_stylepacks/` that matches the target aesthetic. Document the chosen look/lens/safety inside the script so the prompt can quote them verbatim.
+4. **Promote the script into a prompt** by copying the necessary `_core` blocks and style pack content into `projects/YYYY-MM-DD_slug_v0X/prompt.md`. Add a plain-text header noting the source script path (e.g., `來源劇本：scripts/.../script.md`).
+5. **Store only `prompt.md`** in each project directory. Keep script drafts, metadata, or planning files inside the matching `scripts/` folder.
+6. **Version scripts and prompts together** using the `YYYY-MM-DD_slug_v0X` pattern, incrementing the version when either artifact changes so history stays synchronized.
+
+### Optional Automation Metadata
+
+- If you plan to automate script-to-prompt conversion, add a `metadata.json` (or `.yml`) file alongside `script.md` in the project’s `scripts/` directory. Use it to map script sections to prompt targets so CODEX or other tooling can process the handoff without touching the `projects/` outputs.
 
 ## Creating a 15-Second Prompt
 
