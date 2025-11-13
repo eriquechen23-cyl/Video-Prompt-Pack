@@ -1,0 +1,14 @@
+name: Thread Weaver Look
+lut: Obsidian-Elemental
+saturation_adjust: -0.03
+contrast: tensile_highlight
+highlights: argent_arc_lite
+shadows: abyssal_violet
+affinity_glow: filament_prism_trace
+texture: armored_silk_wrap
+chromatic_aberration: micro_split_spool
+lens_distortion: subtle_barrel_lock
+notes:
+  - 強化絲線在暗處的金屬微光，確保多元素光澤在 30° 側光下也能辨識。
+  - 服裝以烏黑硬化披風結合金屬指虎，保留纖維細節與戰損髒污層。
+  - 元素脈衝需沿絲線向外漸層：雷偏青白、霜偏蒼銀、火偏熾橘紅。

@@ -1,0 +1,38 @@
+name: Thread Weaver VFX
+niagara_presets:
+  - filament_arc_bind
+  - frost_thread_fracture
+  - ember_coil_dragnet
+  - shadow_suture_finisher
+unity_vfx_graph:
+  - ThreadWeaver.ArcBind.vfx
+  - ThreadWeaver.FrostShatter.vfx
+  - ThreadWeaver.EmberReel.vfx
+  - ThreadWeaver.VoidSnare.vfx
+houdini_flipbooks:
+  - filament_burst_arc
+  - cryo_thread_crack
+  - ember_thread_cinders
+  - void_slice_afterimage
+shader_settings:
+  filament_core_emit: 0.56
+  cryo_rime_density: 0.62
+  ember_heat_ramp: 0.71
+  void_slice_alpha: 0.44
+spline_controls:
+  tension_min: 0.28
+  tension_max: 0.82
+  noise_jitter: 0.19
+bloom_control:
+  idle: 0.10
+  trigger_peak: 0.74
+  cooldown: 0.32
+audio_sync:
+  arc_pulse: sync_to_midband
+  frost_snap: sync_to_highspark
+  ember_reel: sync_to_lowrumble
+  void_cut: sync_to_fullmute
+notes:
+  - 絲線須保留 1px 外擴光暈避免 aliasing，收束時縮短 0.2s 使拉扯更俐落。
+  - 霜裂爆破加入碎冰＋金屬碎片混合軌跡，落地粒子 1.5s 內淡出。
+  - 影斷終結時加入低透明殘影剪裁，配合攝影機微震 2frame。
