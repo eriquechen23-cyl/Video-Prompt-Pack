@@ -1,0 +1,13 @@
+name: Storm Boss Lock-On Look
+lut: Tempest-Rain
+saturation_adjust: -0.02
+contrast: high_dynamic
+highlights: electric_blue
+shadows: deep_charcoal
+texture: rain_slick_armor
+chromatic_aberration: restrained_blue_fringe
+lens_distortion: micro_barrel
+notes:
+  - 夜雨環境保留冷藍閃電反光，膚色維持 58 IRE
+  - 地面水漬需加入鏡面高光與波紋疊層
+  - HUD 螢光元素亮度限制在 120 nits，避免壓過雷弓電弧
