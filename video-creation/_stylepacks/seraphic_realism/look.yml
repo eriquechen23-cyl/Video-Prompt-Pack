@@ -1,0 +1,14 @@
+name: Seraphic Realism Look
+pipeline: AAA_game_cinematic
+primary_grade: dark_to_warm_shift
+lut: Shadow-Lift_Warm-Bloom
+saturation_adjust: -0.02
+contrast_curve: crush_to_pop
+highlights: amber_volumetric
+shadows: indigo_black
+midtones: moonlit_skin
+texture: anisotropic_detail_with_particle_dust
+notes:
+  - 開場陰冷藍調配合潮濕廢墟
+  - 蛻變後導入高對比暖光與微粒炫光
+  - 維持 3A 遊戲級 PBR 細節與肌理

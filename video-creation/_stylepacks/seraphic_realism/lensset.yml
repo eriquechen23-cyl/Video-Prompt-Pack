@@ -1,0 +1,18 @@
+name: Seraphic Realism Lens & Camera Set
+primary_focals: [24, 35, 65]
+shutter_angle: 200
+sensor_mode: full_frame_6k
+motion_profile:
+  opener: slow_push_on_dolly
+  mid: handheld_stabilized_5_percent
+  climax: halo_orbit_on_jib
+exposure:
+  key: 0.0
+  fill: -2.0
+  backlight: +1.5
+support: motorized_dolly_and_jib
+usage_notes:
+  - 24mm 建立廢墟教堂尺度與破碎石柱層次
+  - 35mm 追蹤角色內心轉折時採緩推
+  - 65mm 用於天使化時的對視特寫與光暈
+  - 採 200° 快門保持光粒與水漬拖尾
