@@ -1,0 +1,14 @@
+name: Frost Gambler Look
+lut: Glacial-Edge
+saturation_adjust: -0.04
+contrast: crisp_frostbite
+highlights: polar_silver
+shadows: abyssal_cyan
+affinity_glow: refracted_iceband
+texture: reinforced_leather_parka
+chromatic_aberration: subtle_prismatic_shear
+lens_distortion: micro_pincushion
+notes:
+  - 夜間場景以冰藍與月白為主軸，維持主角膚色在 50 IRE 以免過冷。
+  - 撲克牌邊緣的霜紋需呈現半透明折射感，貼附時帶輕微霜霧。
+  - 冰霜爆炸使用冷色體積光，控制亮度避免蓋過 HUD 細節。
