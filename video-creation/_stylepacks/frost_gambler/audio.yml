@@ -1,0 +1,30 @@
+name: Frost Gambler Audio
+core_layers:
+  - polar_wind_bed
+  - neon_icicle_drones
+  - card_snap_percussion
+  - subpulse_frost_core
+peak_events:
+  - timestamp: card_flick
+    sfx: lacquer_snap_icy
+    level_db: -11
+    stereo_width: 80
+  - timestamp: freeze_bloom
+    sfx: cryo_spread_chime
+    level_db: -7
+    stereo_width: 120
+  - timestamp: shatter_chain
+    sfx: glass_ice_implosion
+    level_db: -3
+    stereo_width: 160
+low_freq_management:
+  sub_ceiling_db: -8
+  lfe_emphasis: 48Hz
+sidechain:
+  trigger_bus: shatter_impacts
+  target: ambience_pad
+  reduction_db: 3.6
+notes:
+  - 風聲需帶霜霧顆粒感，與環境金屬殘響交錯。
+  - 凍結瞬間加入水晶延音，強調時間凝結效果。
+  - 粉碎爆炸搭配低頻衝擊與高頻碎裂層次，保持節奏俐落。
