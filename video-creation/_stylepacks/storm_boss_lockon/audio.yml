@@ -1,0 +1,30 @@
+name: Storm Boss Lock-On Audio
+core_layers:
+  - torrential_rain_bed
+  - bowed_metal_tension
+  - subpulse_heartbeat
+  - arc_flash_whoosh
+peak_events:
+  - timestamp: lock_confirm
+    sfx: hud_pulse_ping
+    level_db: -8
+    stereo_width: 90
+  - timestamp: arrow_release
+    sfx: thunderstring_snap
+    level_db: -3
+    stereo_width: 140
+  - timestamp: core_detonation
+    sfx: mech_beast_implode
+    level_db: -2
+    stereo_width: 160
+low_freq_management:
+  sub_ceiling_db: -5
+  lfe_emphasis: 48Hz
+sidechain:
+  trigger_bus: impact_bus
+  target: subpulse_heartbeat
+  reduction_db: 2.5
+notes:
+  - 雨聲需隨鏡頭切換維持連續，避免跳變
+  - 雷弓拉弦時加入靜電細沙聲作粒子提示
+  - 爆炸後殘留電弧使用反向混響緩慢衰減 1.2s

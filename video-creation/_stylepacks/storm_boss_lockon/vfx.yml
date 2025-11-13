@@ -1,0 +1,34 @@
+name: Storm Boss Lock-On VFX
+niagara_presets:
+  - electromagnetic_bowstring
+  - shield_shatter_ring
+  - serpent_ground_arcs
+unity_vfx_graph:
+  - StormBow.DrawPulse.vfx
+  - BossShield.Fragment.vfx
+  - CoreImplode.Cascade.vfx
+houdini_flipbooks:
+  - rain_sheet_hit_sparks
+  - mech_plating_shatter
+  - plasma_core_bloom
+shader_settings:
+  bolt_core_thickness: 0.38
+  shield_crystalize_speed: 0.55
+  arrow_trail_decay: 0.42
+  hud_glow_intensity: 0.28
+sdf_settings:
+  boss_surface_wrap: 0.32
+  weakpoint_lock_radius: 0.18
+  debris_spawn_delay: 0.2
+bloom_control:
+  idle: 0.16
+  trigger_peak: 0.88
+  cooldown: 0.35
+audio_sync:
+  bow_draw_resonance: align_to_heartbeat
+  release_flash: accent_thunderstring
+  core_blast: sync_mech_implode
+notes:
+  - 拉弦期間 HUD 粒子需遵循電弧張力曲線，避免穿幀
+  - 護盾破裂採用多層玻璃碎片與能量薄膜交錯，1 frame 延遲切換發光貼圖
+  - 核心爆閃後地面殘留蛇型電光需沿裂縫動態遮罩延長 3 frame
