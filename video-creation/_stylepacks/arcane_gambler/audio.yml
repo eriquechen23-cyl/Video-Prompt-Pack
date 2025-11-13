@@ -1,0 +1,30 @@
+name: Arcane Gambler Audio
+core_layers:
+  - wet_street_rain_bed
+  - neon_hum_riser
+  - card_flick_percussion
+  - subpulse_suspense
+peak_events:
+  - timestamp: card_flick
+    sfx: lacquer_snap
+    level_db: -10
+    stereo_width: 70
+  - timestamp: card_stick
+    sfx: sigil_whine
+    level_db: -6
+    stereo_width: 110
+  - timestamp: detonate
+    sfx: focused_implosion
+    level_db: -2
+    stereo_width: 150
+low_freq_management:
+  sub_ceiling_db: -7
+  lfe_emphasis: 52Hz
+sidechain:
+  trigger_bus: explosion_hits
+  target: ambience_pad
+  reduction_db: 3.2
+notes:
+  - 彈牌聲須清脆且帶輕微金屬共鳴，襯托魔術師職業感
+  - 延遲爆炸時加入升頻 whirr，與 HUD 倒數一致
+  - 連鎖爆炸保持節奏如鼓點，最後集束爆破給 0.5s 淡出空間
