@@ -1,0 +1,34 @@
+name: Arcane Gambler VFX
+niagara_presets:
+  - card_sigils_attach
+  - delayed_shrapnel_pop
+  - hud_thread_reticle
+unity_vfx_graph:
+  - Gambler.CardLatch.vfx
+  - Gambler.ChainDetonate.vfx
+  - Gambler.ClusterImplode.vfx
+houdini_flipbooks:
+  - paper_sigil_ignite
+  - micro_charge_bloom
+  - debris_card_confetti
+shader_settings:
+  rune_edge_emit: 0.62
+  delay_timer_glow: 0.34
+  detonation_implode_strength: 0.58
+  debris_velocity_random: 0.47
+sdf_settings:
+  armor_surface_wrap: 0.29
+  hud_lockbox_radius: 0.22
+  chain_trigger_offset: 0.18
+bloom_control:
+  idle: 0.14
+  trigger_peak: 0.76
+  cooldown: 0.33
+audio_sync:
+  card_tap: sync_to_heartbeat
+  stick_confirm: ping_subtle_click
+  detonate: staggered_implode
+notes:
+  - 撲克牌貼附需使用法陣紋理動畫，0.3 秒延遲內保留細緻脈動
+  - 連鎖爆炸應採用節點延時 0.12s 的序列，突出節奏感
+  - 爆炸後殘留紙屑粒子 1.6s 內漸進淡出，避免畫面太亂

@@ -1,0 +1,14 @@
+name: Arcane Gambler Look
+lut: Ember-Neon
+saturation_adjust: 0.08
+contrast: high_dynamic
+highlights: arcane_gold
+shadows: obsidian_teal
+affinity_glow: hud_crimson_thread
+texture: wet_trench_coat
+chromatic_aberration: restrained_dual_tint
+lens_distortion: micro_barrel
+notes:
+  - 夜間霓虹反射需以紅金點亮撲克牌邊緣，膚色維持 55 IRE 微暖
+  - 牌面符文採用細緻浮雕高光，避免過曝而看不清紋理
+  - 背景雨霧與焦煙需分層處理，保留 HUD 介面清晰度
