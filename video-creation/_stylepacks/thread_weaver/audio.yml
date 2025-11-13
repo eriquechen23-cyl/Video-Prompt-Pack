@@ -1,0 +1,35 @@
+name: Thread Weaver Audio
+core_layers:
+  - dusk_industrial_air
+  - filament_tension_hum
+  - frost_crystal_pads
+  - ember_subpulse_throb
+  - void_tail_riser
+peak_events:
+  - timestamp: arc_bind_trigger
+    sfx: braided_arc_whip
+    level_db: -8
+    stereo_width: 120
+  - timestamp: frost_thread_break
+    sfx: crystal_shear_shatter
+    level_db: -4
+    stereo_width: 150
+  - timestamp: ember_coil_snap
+    sfx: furnace_wire_screech
+    level_db: -5
+    stereo_width: 110
+  - timestamp: void_finisher_cut
+    sfx: ribbon_void_slice
+    level_db: -3
+    stereo_width: 90
+low_freq_management:
+  sub_ceiling_db: -9
+  lfe_emphasis: 52Hz
+sidechain:
+  trigger_bus: filament_hits
+  target: ambience_pad
+  reduction_db: 4.0
+notes:
+  - 雷屬束縛層混入電弧噼啪與張力摩擦聲，維持 6kHz 以上亮度。
+  - 霜裂爆破需加入碎冰滑落至地的環繞音，延長 0.6s 的尾韻。
+  - 影斷斬擊瞬間抽空中頻，利用 -100ms pre-delay 形成真空感後再回復。
