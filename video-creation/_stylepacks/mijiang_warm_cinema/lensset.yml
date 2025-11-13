@@ -1,0 +1,14 @@
+name: Mijiang Warm Cinema Lens Set
+primary_focals: [32, 48, 75]
+shutter_angle: 180
+depth_of_field: shallow_T2.0-T2.8
+dolly:
+  move: slider_glide_in
+  speed_ratio: 0.75
+handheld_usage: 0.02
+support: slider_or_tripod_breath
+focus_method: layered_pull_foreground_to_subject
+usage_notes:
+  - 32mm 建立環境光圈，保持前中後層次
+  - 48mm 拍攝人與貓互動，視線貼近但穩定
+  - 75mm 捕捉手部與毛髮細節，控制呼吸式拉焦

@@ -1,0 +1,25 @@
+name: Mijiang Warm Cinema Lighting
+key_light:
+  source: tungsten_table_lamp
+  color_temp: 3000K
+  modifier: opal_dome_diffuser
+fill:
+  source: bounced_practical
+  color_temp: 4200K
+  intensity_ratio: 0.35
+backlight:
+  source: hidden_led_strip
+  color_temp: 4600K
+  notes: 用於勾勒貓耳與掌心邊緣
+practicals:
+  - name: floor_reflection
+    description: 木地板反射暖光形成淡光圈
+  - name: sigil_glow
+    description: 地面光陣散發淡金光補亮暗部
+atmosphere:
+  haze_level: 0.05
+  particles: suspended_dust_soft
+notes:
+  - 暖黃實光搭配冷調背景，營造陰影安全感
+  - 控制對比避免完全漆黑，保留細節可供追焦
+  - 光陣亮度需可動畫控，與呢喃節奏同步

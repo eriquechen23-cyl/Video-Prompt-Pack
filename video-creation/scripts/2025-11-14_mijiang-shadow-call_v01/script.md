@@ -7,7 +7,7 @@
 ## Project Overview
 
 - **Project ID**: `2025-11-14_mijiang-shadow-call_v01`
-- **Source Style Pack**: `real_cinema/look.yml` · `real_cinema/lensset.yml` · `real_cinema/safety.yml`
+- **Source Style Pack**: `mijiang_warm_cinema/look.yml` · `mijiang_warm_cinema/lensset.yml` · `mijiang_warm_cinema/lighting.yml` · `mijiang_warm_cinema/audio.yml` · `mijiang_warm_cinema/safety.yml`
 - **Core Prompt Blocks to Embed**: `_core/global_prompt.md`, `_core/scene_block.md`, `_core/audio_pack.md`, `_core/qa_checklist.md`
 - **Metadata File (optional)**: _None (not required for this draft)_
 
@@ -61,24 +61,24 @@ A soft-spoken human summons their grey-blue cat 米漿 out of the apartment shad
 
 ## Visual Development Notes
 
-- Lighting contrast should feel ritualistic yet domestic: single 3200K lamp versus deep blue ambient shadows.
+- Lighting contrast should stay ritualistic yet domestic per warm cinema pack: single 3000–3200K lamp balanced by softened 4200K bounce and faint 4600K edge for ears/palms.
 - Highlight subtle bioluminescent quality in palms and sigil; keep glow warm gold to echo lamp tone.
 - 米漿 fur reference: plush grey-blue with sheen catching highlights around ears and tail.
-- Include cardboard boxes, cat scratcher silhouettes, and wooden flooring texture for grounded realism.
+- Include cardboard boxes, cat scratcher silhouettes, and wooden flooring texture for grounded realism; retain floating dust motes in light cone.
 
 ## Camera & Motion Plan
 
-- Prioritize Real Cinema lens set: 35mm for establishing, 50mm for human-cat interactions, 75mm for hands and paws.
-- Camera mostly tripod/slider steady; introduce minimal 3% handheld breath during snap to convey energy.
+- Prioritize Mijiang Warm Cinema lens set: 32mm for establishing, 48mm for human-cat interactions, 75mm for hands and paws.
+- Camera mostly tripod/slider steady; introduce ≤2% handheld breath during snap to convey energy without breaking coziness.
 - Maintain shutter 180° and shallow depth (T2.0–T2.8) to isolate glow details against dark background.
 - Transitions rely on direct cuts with occasional light-match on glowing lines.
 
 ## Audio & Voice Strategy
 
-- Music: low-key lo-fi pads with slight bell tones timed to glowing lines.
-- Foley: HVAC rumble, fabric rustle, finger snap, cardboard creak, paw taps, sniff, purr.
+- Music: low-key lo-fi strings with mallet chimes timed to glowing lines.
+- Foley: HVAC rumble, fabric rustle, finger snap, cardboard creak, paw taps, sniff, purr；保持 pack 內建層級。
 - Vocal: whispered nicknames recorded close-mic with soft reverb tail; avoid additional dialogue.
-- Mix target: -14 LUFS, keep high-frequency air to prevent overly dry room tone.
+- Mix target: -14 LUFS, keep high-frequency air to prevent overly dry room tone; follow pack dynamic range (-18 ~ -6 dBFS).
 
 ## Pace & Timing Grid
 
@@ -97,9 +97,9 @@ A soft-spoken human summons their grey-blue cat 米漿 out of the apartment shad
 
 ## Safety & Compliance Checklist
 
-- Follow `Real Cinema Safety Checklist`: remove logos/labels on boxes or clothing; preserve privacy by keeping human face mostly obscured.
-- Document LUT, glow settings, and render seeds for QA reproducibility.
-- Ensure subtitle is localized and free of trademarks.
+- Follow `Mijiang Warm Cinema Safety Checklist`: remove logos/labels on boxes or clothing, ensure animal-safe lighting, keep human face mostly obscured.
+- Document LUT, glow settings, and render seeds for QA reproducibility。
+- Ensure subtitle is localized and free of trademarks；同時記錄光陣亮度參數。
 
 ## Prompt Mapping Checklist
 

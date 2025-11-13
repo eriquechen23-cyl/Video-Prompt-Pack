@@ -1,4 +1,4 @@
-# 米漿的召喚光圈：Real Cinema 家庭寫實 Prompt（15s｜12 幕）
+# 米漿的召喚光圈：暖調電影感 Prompt（15s｜12 幕）
 
 來源劇本：scripts/2025-11-14_mijiang-shadow-call_v01/script.md
 
@@ -77,68 +77,133 @@ Angle {a}
 ☐ 生成設定與交付規格一致。
 ```
 
-### Style Pack：Real Cinema Look（`_stylepacks/real_cinema/look.yml`）
+### Style Pack：Mijiang Warm Cinema Look（`_stylepacks/mijiang_warm_cinema/look.yml`）
 ```yaml
-name: Real Cinema Look
-lut: Skin-Priority
-saturation_adjust: -0.05  # 去飽和 5–8%
-skin_tone_ire: 60
-contrast: soft
-highlights: warm
-shadows: cool_blue
-texture: natural_grain
+name: Mijiang Warm Cinema Look
+lut: Ember-Soft-Negative
+white_balance_reference: 3200K_lamp
+contrast: gentle_low_mid
+highlight_tone: honey_amber
+shadow_tone: indigo_soft_cool
+skin_tone_ire: 58-62
+saturation_adjust: -0.03
+grain_profile: fine_35mm_400T
+bloom: localized_palm_glow
 notes:
-  - 膚色優先校正
-  - 微膠片顆粒
-  - 高光暖、陰影微藍
+  - 夜間室內保留暖黃主光與藍冷陰影對比
+  - 皮膚與貓毛維持柔亮層次，不可過曝
+  - 適度保留顆粒感與光暈，塑造溫馨電影質感
 ```
 
-### Style Pack：Real Cinema Lens Set（`_stylepacks/real_cinema/lensset.yml`）
+### Style Pack：Mijiang Warm Cinema Lens Set（`_stylepacks/mijiang_warm_cinema/lensset.yml`）
 ```yaml
-name: Real Cinema Lens Set
-primary_focals: [35, 50, 75]
+name: Mijiang Warm Cinema Lens Set
+primary_focals: [32, 48, 75]
 shutter_angle: 180
+depth_of_field: shallow_T2.0-T2.8
 dolly:
-  move: glide_in
-  speed_ratio: 0.8
-handheld_usage: 0.03
-support: slider_or_stabilizer
+  move: slider_glide_in
+  speed_ratio: 0.75
+handheld_usage: 0.02
+support: slider_or_tripod_breath
+focus_method: layered_pull_foreground_to_subject
 usage_notes:
-  - 室內情緒戲採滑軌緩推
-  - 側向平移保持視線連續
-  - 聚焦於自然膚質呈現
+  - 32mm 建立環境光圈，保持前中後層次
+  - 48mm 拍攝人與貓互動，視線貼近但穩定
+  - 75mm 捕捉手部與毛髮細節，控制呼吸式拉焦
 ```
 
-### Style Pack：Real Cinema Safety Checklist（`_stylepacks/real_cinema/safety.yml`）
+### Style Pack：Mijiang Warm Cinema Lighting（`_stylepacks/mijiang_warm_cinema/lighting.yml`）
 ```yaml
-name: Real Cinema Safety Checklist
+name: Mijiang Warm Cinema Lighting
+key_light:
+  source: tungsten_table_lamp
+  color_temp: 3000K
+  modifier: opal_dome_diffuser
+fill:
+  source: bounced_practical
+  color_temp: 4200K
+  intensity_ratio: 0.35
+backlight:
+  source: hidden_led_strip
+  color_temp: 4600K
+  notes: 用於勾勒貓耳與掌心邊緣
+practicals:
+  - name: floor_reflection
+    description: 木地板反射暖光形成淡光圈
+  - name: sigil_glow
+    description: 地面光陣散發淡金光補亮暗部
+atmosphere:
+  haze_level: 0.05
+  particles: suspended_dust_soft
+notes:
+  - 暖黃實光搭配冷調背景，營造陰影安全感
+  - 控制對比避免完全漆黑，保留細節可供追焦
+  - 光陣亮度需可動畫控，與呢喃節奏同步
+```
+
+### Style Pack：Mijiang Warm Cinema Audio（`_stylepacks/mijiang_warm_cinema/audio.yml`）
+```yaml
+name: Mijiang Warm Cinema Audio
+music:
+  palette: lo_fi_strings_with_mallets
+  bpm: 68
+  progression: warm_minor_to_major_lift
+ambience:
+  layers:
+    - hvac_low_hum
+    - distant_city_muffle
+    - soft_room_air
+foley:
+  - cloth_shift_subtle
+  - finger_snap_resonant
+  - cardboard_rustle
+  - cat_paw_wood_taps
+  - cat_purr_close_mic
+voice:
+  type: whispered_roll_call
+  treatment: close_mic_soft_reverb
+mix_targets:
+  loudness: -14_LUFS
+  peak: -1_dBTP
+  dynamic_range: -18_to_-6_dBFS
+notes:
+  - 保留高頻空氣感避免房間過乾
+  - 貓呼嚕聲後段可漸進成主導層
+  - 音樂和光線變化需保持 0.9× 節奏同步
+```
+
+### Style Pack：Mijiang Warm Cinema Safety Checklist（`_stylepacks/mijiang_warm_cinema/safety.yml`）
+```yaml
+name: Mijiang Warm Cinema Safety Checklist
 rules:
-  - 避免可讀字與商標曝光
-  - 群眾不近特寫，維持隱私
-  - 保持自然膚質與光比
-  - 記錄 LUT 與種子以利 QA
+  - 避免實際火焰或高溫燈具接近動物
+  - 所有道具紙箱貼紙需模糊或移除文字
+  - 保持人類臉部低於 50% 曝光，主角為米漿
+  - 記錄光陣亮度與動畫參數以利 QA 重製
+  - 收音時預留貓咪舒適距離，避免驚嚇
 ```
 
 ---
 
 ## Master Prompt 實際填寫
 ```
-Master(15s｜Real Cinema Look｜16:9｜24fps｜夜間溫暖儀式感)
+Master(15s｜Mijiang Warm Cinema Look｜16:9｜24fps｜夜間溫暖儀式感)
 「夜晚公寓客廳；暖黃檯燈孤照、木地板、紙箱陰影；人類以呢喃召喚灰藍貓米漿走出黑暗重回光圈懷抱。
-鏡頭：滑軌穩定構圖搭配微幅側移，打響指瞬間允許≤3%手持貼近。
+鏡頭：滑軌穩定構圖搭配微幅側移，打響指瞬間允許≤2%手持貼近。
 表演：人聲由輕語到安撫，手勢穩定；米漿從遲疑到親昵，視線逐步抬升至主人掌心。
 臉型/髮型：米漿圓潤臉型、短毛柔順；主人僅露下巴與肩線，長髮自然下垂。
 構圖：三分線＋前中後層次，留白 15% 讓黑暗與光暈呼吸；動態：光線描繪、指尖動作、貓尾律動。
 寫實細節：掌心皮膚透光紋理、木紋縫隙藏光、紙箱纖維微抖、貓毛被撫平又彈起、字幕淡金浮出。
 字幕：收尾浮出「原來，牠會來，是因為知道我一直在等。」；無商標/Logo/水印。」
 
-鏡頭語法：35 建立空間｜50 親密｜75 細節；
+鏡頭語法：32 建立空間｜48 親密｜75 細節；
 光圈 {T2.0–T2.8}；快門角 {180°}；
 對焦 {層次前→中→後/單點掌心/呼吸跟焦米漿瞳孔}。
 光影：{側逆檯燈+室內藍黑陰影包裹}；色溫 {夜3000–3800K}；
 對比 {柔}；眼神光 {保留於米漿眼與掌心光點}。
 色調/LUT：{自然肌理/膚色優先/陰影微藍・高光暖/去飽和5%}。
-聲音：環境空調低鳴+遠車/衣料輕擦/腳步軟木/指尖響指/呼嚕（-6 dB 峰值）；音樂 {Lo-fi 鐘聲墊底節奏輕推}。
+聲音：環境空調低鳴+遠車/衣料輕擦/腳步軟木/指尖響指/呼嚕（-6 dB 峰值）；音樂 {Lo-fi 絃樂＋木琴敲擊緩推}。
 轉場：{直接切/光源匹配/遮擋指尖過鏡/羽化0.5s}。
 安全：無品牌/無可讀文件/人類臉不完全露出/連戲一致。
 ```
@@ -156,7 +221,7 @@ Master(15s｜Real Cinema Look｜16:9｜24fps｜夜間溫暖儀式感)
 Blocking：畫面保持靜止，只有暖光在地板上形成圓形光圈
 Camera：
 - 運鏡：定鏡帶呼吸微晃
-- 焦段/機位：35mm 眼高
+- 焦段/機位：32mm 眼高
 - 對焦：層次前→中→後，鎖定光圈邊緣木紋
 - 快門角：180；拍點：空調低鳴起始
 光影：檯燈側逆打出柔和高光，周圍陰影轉冷藍
@@ -175,7 +240,7 @@ Angle A
 Blocking：主人盤腿坐於光圈邊界，掌心向上放在膝上，手指輕顫
 Camera：
 - 運鏡：俯角滑軌輕推
-- 焦段/機位：50mm 胸高偏俯
+- 焦段/機位：48mm 胸高偏俯
 - 對焦：單點掌心與指尖
 - 快門角：180；拍點：手指顫動
 光影：掌背受暖光照亮，背後淺藍陰影包覆
@@ -238,7 +303,7 @@ Angle D
 Blocking：每個暱稱說出口，地板上浮現一筆淡金光
 Camera：
 - 運鏡：側向滑移跟隨光線繞圈
-- 焦段/機位：50mm 膝高
+- 焦段/機位：48mm 膝高
 - 對焦：層次掌心→光線
 - 快門角：180；拍點：光線落筆
 光影：木紋縫隙被淡金填滿，邊緣仍保持藍陰影
@@ -257,7 +322,7 @@ Angle E
 Blocking：俯視看到完整光圈，中間浮出肉球圖案
 Camera：
 - 運鏡：俯視緩慢旋轉
-- 焦段/機位：35mm 正上方
+- 焦段/機位：32mm 正上方
 - 對焦：層次光圈外→內
 - 快門角：180；拍點：陣心亮起
 光影：光圈柔亮，外圈陰影保持藍冷
@@ -295,7 +360,7 @@ Angle G
 Blocking：鏡頭轉向紙箱與貓抓板，陰影輕晃
 Camera：
 - 運鏡：滑軌平移＋輕微拉近
-- 焦段/機位：50mm 眼高
+- 焦段/機位：48mm 眼高
 - 對焦：層次前景紙箱→陰影
 - 快門角：180；拍點：紙箱邊抖動
 光影：陰影內浮現細小亮紋，保持低光
@@ -339,7 +404,7 @@ Angle I
 Blocking：米漿從暗處踏出，朝光圈走去
 Camera：
 - 運鏡：低角度跟拍，隨步伐前移
-- 焦段/機位：50mm 貓眼高度
+- 焦段/機位：48mm 貓眼高度
 - 對焦：呼吸跟焦腳掌→肩線
 - 快門角：180；拍點：踏入光圈第一步
 光影：燈光在毛上形成柔亮高光，影子拉長
@@ -358,7 +423,7 @@ Angle J
 Blocking：米漿在光陣中心坐下，鼻尖貼近掌心嗅聞
 Camera：
 - 運鏡：滑軌微推到中近景
-- 焦段/機位：50mm 膝高
+- 焦段/機位：48mm 膝高
 - 對焦：單點掌心→呼吸跟焦鼻尖
 - 快門角：180；拍點：鼻尖接觸掌心
 光影：掌心金光映在米漿鬍鬚，背景暗沉
@@ -377,7 +442,7 @@ Angle K
 Blocking：主人順著米漿背撫摸，米漿半闔眼打呵欠，字幕浮現
 Camera：
 - 運鏡：肩上過肩視角緩慢拉遠
-- 焦段/機位：35mm 肩上過肩
+- 焦段/機位：32mm 肩上過肩
 - 對焦：層次掌心→背脊→字幕
 - 快門角：180；拍點：字幕完全呈現
 光影：背脊毛被壓出金色光帶，背景陰影柔化

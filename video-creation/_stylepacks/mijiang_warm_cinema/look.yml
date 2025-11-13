@@ -1,0 +1,14 @@
+name: Mijiang Warm Cinema Look
+lut: Ember-Soft-Negative
+white_balance_reference: 3200K_lamp
+contrast: gentle_low_mid
+highlight_tone: honey_amber
+shadow_tone: indigo_soft_cool
+skin_tone_ire: 58-62
+saturation_adjust: -0.03
+grain_profile: fine_35mm_400T
+bloom: localized_palm_glow
+notes:
+  - 夜間室內保留暖黃主光與藍冷陰影對比
+  - 皮膚與貓毛維持柔亮層次，不可過曝
+  - 適度保留顆粒感與光暈，塑造溫馨電影質感

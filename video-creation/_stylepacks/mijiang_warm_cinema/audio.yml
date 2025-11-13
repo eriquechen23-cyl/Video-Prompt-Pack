@@ -1,0 +1,27 @@
+name: Mijiang Warm Cinema Audio
+music:
+  palette: lo_fi_strings_with_mallets
+  bpm: 68
+  progression: warm_minor_to_major_lift
+ambience:
+  layers:
+    - hvac_low_hum
+    - distant_city_muffle
+    - soft_room_air
+foley:
+  - cloth_shift_subtle
+  - finger_snap_resonant
+  - cardboard_rustle
+  - cat_paw_wood_taps
+  - cat_purr_close_mic
+voice:
+  type: whispered_roll_call
+  treatment: close_mic_soft_reverb
+mix_targets:
+  loudness: -14_LUFS
+  peak: -1_dBTP
+  dynamic_range: -18_to_-6_dBFS
+notes:
+  - 保留高頻空氣感避免房間過乾
+  - 貓呼嚕聲後段可漸進成主導層
+  - 音樂和光線變化需保持 0.9× 節奏同步
