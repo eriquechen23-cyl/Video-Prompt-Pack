@@ -1,0 +1,37 @@
+name: Circuit Mage Arrival Audio
+core_layers:
+  - midnight_city_air
+  - console_key_ghosts
+  - arcane_hum_loops
+  - feline_star_purr
+  - portal_low_riser
+peak_events:
+  - timestamp: hud_activation
+    sfx: crystalline_ui_spin
+    level_db: -8
+    stereo_width: 130
+  - timestamp: portal_burst
+    sfx: circuit_warp_slam
+    level_db: -5
+    stereo_width: 150
+  - timestamp: landing_impact
+    sfx: echoing_bootfall
+    level_db: -7
+    stereo_width: 110
+  - timestamp: mana_transfer
+    sfx: starlit_particle_flow
+    level_db: -9
+    stereo_width: 90
+sidechain:
+  trigger_bus: portal_burst
+  target_bus: ambience
+  reduction_db: 4.5
+low_freq_management:
+  lfe_focus_hz: 48
+  sub_trim_db: -10
+mix_notes:
+  - 鍵盤敲擊節奏需與術師指尖動作對拍，音量低於 -18 dBFS 作為記憶殘響。
+  - Portal 爆裂後 0.3s 內加入帶空氣感的風噪以銜接異世界聲景。
+  - 米漿心電感應聲採用慵懶男中音帶柔性混響（0.6s），在 Act III Beat 06 內提示詠唱節奏並保持內心旁白質感。
+  - 燁龍基底詠唱錄製為清晰男中音，多段停頓需對應 HUD 語法亮度；字句峰值控制在 -14 dBFS 並於命中瞬間觸發次低頻推力。
+  - 當尾巴星火補魔時，加入高頻顆粒閃爍聲並漸強至 -12 dBFS 後快速衰減。

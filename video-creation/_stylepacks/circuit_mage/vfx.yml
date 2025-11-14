@@ -1,0 +1,35 @@
+name: Circuit Mage Arrival VFX
+niagara_presets:
+  - circuit_thread_launch
+  - portal_ribbon_fold
+  - hexshield_microburst
+unity_vfx_graph:
+  - CircuitMage.LightCompile.vfx
+  - CircuitMage.HexShieldPop.vfx
+houdini_flipbooks:
+  - lightcode_stream_wrap
+  - cat_starflare_pulse
+shader_controls:
+  iris_glow_trace: 0.58
+  circuit_line_thickness: 0.34
+  portal_warp_intensity: 0.67
+  hud_ring_opacity: 0.42
+bloom_profile:
+  idle: 0.12
+  channeling: 0.65
+  release: 0.28
+light_trail:
+  tail_length: 0.55
+  decay_speed: 0.36
+static_charge_particles:
+  density: 0.48
+  color_mix: [electric_gold, frost_blue]
+audio_sync_hooks:
+  iris_ping: sync_to_mid_high
+  portal_whoosh: sync_to_low_mid
+  hud_scroll: sync_to_highspark
+  cat_purr_flux: sync_to_low_rumble
+notes:
+  - 請確保金色線路在 HUD 展開時沿左手環逐格亮起，與胸前光晶同頻。
+  - 入口炸裂需保留 0.2s 無聲光閃後再釋出電流噼啪，避免過曝。
+  - 貓尾星火補魔時，尾端粒子向術師胸口流動形成細緻弧線，最後收束於光晶。
