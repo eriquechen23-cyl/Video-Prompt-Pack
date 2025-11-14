@@ -1,0 +1,30 @@
+name: Light Glyph Anime VFX
+layer_stack:
+  - background_mist_scroll
+  - hud_symbol_plane
+  - spell_vector_trail
+  - glow_dust_overlay
+spell_trail:
+  color_mix: [auric_gold, mint_glow]
+  taper: 0.42
+  flicker_speed: 0.28
+hud_widgets:
+  panel_opacity: 0.65
+  glyph_refresh_rate: 14
+  debug_log_spacing: 18
+error_feedback:
+  color: crimson_error
+  glitch_amount: 0.36
+  frame_freeze: 0.08
+particle_settings:
+  glyph_sparks: 0.54
+  light_dust: 0.32
+  cat_starflare: 0.41
+disintegration_fx:
+  hexshield_tile_break: 0.57
+  light_code_dissolve: 0.49
+notes:
+  - HUD 浮層需與角色動作略帶遲滯，營造空中投影被拉扯的感覺。
+  - 能量彎射路徑依角色揮手軌跡生成弧形光帶，符文沿光帶流動。 
+  - 蜂巢六角盾破碎後應立即重排，碎片化為細小光粒回收至掌心。
+  - 米漿星火充能時，尾端粒子需向胸口光晶形成柔和渦流。

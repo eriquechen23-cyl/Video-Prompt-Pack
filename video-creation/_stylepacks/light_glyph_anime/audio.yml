@@ -1,0 +1,22 @@
+name: Light Glyph Anime Audio
+time_signature: 4/4
+bpm_range: [92, 108]
+ambient_beds:
+  - soft_city_air_hum
+  - crystalline_aether_pad
+rhythmic_layers:
+  percussive_clicks: holo_keyboard_taps
+  sub_pulse: low_orbital_throb
+ui_fx:
+  glyph_expand: airy_chime_hi
+  compile_ping: glassy_beep_mid
+  error_flag: clipped_square_red
+spell_sweeteners:
+  curve_bolt_release: arc_bow_sheen
+  hexshield_reform: hex_shingle_swirl
+  cat_starflare: purr_riser_glow
+mix_notes:
+  - 對話維持 -6 dB 峰值，HUD 音效壓在 -12 dB 以下避免干擾詠唱。 
+  - 程式碼浮現時加入細緻鍵擊聲，與主角手指敲擊空氣同步。 
+  - 米漿心電音色偏低沉慵懶，情緒激動時可疊加高頻毛髮靜電。 
+  - 戰鬥高潮加強 4kHz 以上空氣感，讓光線爆閃更具穿透力。

@@ -1,0 +1,23 @@
+name: Light Glyph Anime Look
+line_enhancement: crisp_vector_edge
+noise_reduction: cel_plate_clean
+saturation: dual_tone_split
+contrast_profile: luminous_soft_mid
+color_palette:
+  primaries: [fog_blue, slate_gray, midnight_indigo]
+  accents: [auric_gold, mint_glow]
+  skin_tone: warm_amber
+glow_layers:
+  base_fill: cool_diffused
+  rim_accents: HUD_edge_trace
+  spell_core: emissive_gold_script
+ui_overlay: parallax_glass_hud
+bloom_intensity: 0.32
+shadow_treatment: soft_multipass_cel
+motion_blur_shutter: 165
+texture_pass: layered_papergrain_subtle
+notes:
+  - 2D 線條需保持乾淨俐落，適度加粗邊緣讓 HUD 光軌不吞線。
+  - 城市環境以冷灰與霧藍主調，透過金色與薄荷藍魔法光強化高對比。
+  - HUD 與程式碼浮層採半透明玻璃質感，確保角色臉部仍清晰可見。
+  - 施法時增加眼睛與衣內銀線的同步脈動光，營造「發光程式」感。
