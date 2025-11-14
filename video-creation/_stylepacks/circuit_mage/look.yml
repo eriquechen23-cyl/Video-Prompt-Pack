@@ -1,0 +1,19 @@
+name: Circuit Mage Arrival Look
+noise_reduction: neon_edge_cleanse
+saturation: balanced_glow_skin
+contrast_profile: luminous_midnight
+color_palette:
+  primaries: [cobalt_blue, electric_gold, smoked_slate]
+  accents: [frosted_teal, warm_white]
+  skin_tone: resilient_warm_amber
+light_behaviour:
+  rim_light: holo_trace
+  bounce_fill: cool_gradient
+line_enhancement: semi_soft_outline
+motion_blur_shutter: 180
+texture_pass: woven_carbon_mesh
+notes:
+  - 強調黑色與深藍服飾上的冷藍反光，保持金線路細節清晰。
+  - 膚色維持小麥暖調，黑眼圈僅留柔和陰影，不要過度泛青。
+  - 施法時金色線條需在眼睛與衣內銀路上產生同步閃爍。
+  - 城市光源以低飽和霧霾藍＋暖白晶體對比，避免雜訊。
