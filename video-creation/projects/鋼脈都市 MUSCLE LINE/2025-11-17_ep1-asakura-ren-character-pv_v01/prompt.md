@@ -4,7 +4,7 @@
 
 ## 世界與角色速記
 - 鋼脈都市：肌肉量化與階級評級制度遍佈的近未來城市，街角充滿重量訓練場、溫暖鈉燈與鏗鏘鐵器聲。
-- 朝倉蓮：三十歲上下，深棕短髮、寬肩厚胸，臉頰有淡淡胡渣；穿深灰壓縮背心＋黑長褲，動作穩健像大型安全裝置。
+- 朝倉蓮：三十歲上下，深棕短髮、寬肩厚胸，臉頰有淡淡胡渣；穿深灰壓縮背心＋黑長褲，動作穩健像大型安全裝置，**全段主題色調為暖黃（鈉燈金＋日光黃）**，在服飾飾邊、護腕織線與毛巾點亮黃系識別。
 - 後輩群（烈／隼人等）：二十歲上下，短髮肌肉男，對蓮既怕又依賴，對話帶半開玩笑。
 
 ## 一句話題材
@@ -90,9 +90,10 @@ visual_language:
   linework: walnut_brown_outer + honey_highlight_inner
   shading: tri_step_muscle_block + sweat_specular_sheath
   palette:
-    primaries: [sunset_amber, charcoal_steel, midnight_teal]
+    primaries: [sunset_amber, aurora_gold_core, charcoal_steel, midnight_teal]
     accents: [neon_sign_red, mint_gym_console, warm_window_glow]
     skin: umber_warm + muted_rosy_flush
+  hero_color: asakura_len_primary = sodium_gold_yellow (apply to rimlights, towel edges, wrist wraps)
 animation:
   base_rate: 12fps_body + 24fps_focus_smear
   smear_usage: weightlifting_impacts, towel_swings, playful_lifts
@@ -112,7 +113,7 @@ safety:
   - outfits stay athletic, no explicit nudity
   - all signage abstract geometric icons
 usage_notes:
-  - 肌肉塊以三層陰影與暖橙 rim 建立厚實感。
+  - 肌肉塊以三層陰影與暖橙 rim 建立厚實感，蓮相關鏡位務必以 aurora_gold rim／反射維持主題色。
   - 調整線條權重突出肩膀、前臂與手掌接觸，呈現大哥穩定手感。
   - 夜間外景加入霧化街燈與長影子，維持安定收束氛圍。
 ```
@@ -126,7 +127,7 @@ Master(15s｜Muscle Line Aniki 2D｜16:9｜24fps｜手繪厚塗肌肉＋暖夜�
 鏡頭：外景廣角略仰建立→逆光中景引入蓮→臉部近景微推→低角側移追蹤槓鈴→貼身穩定器捕捉矯正→半側臉定格→腳步跟拍→室內廣角插腰→手持玩鬧→打烊跟拍→街角中近景→正面近景收標語。
 表演：蓮眼神穩、嘴角偶爾上揚，對後輩語氣嘴壞但節奏慢；玩鬧時笑得放鬆，獨處時眉心微蹙卻仍安定。
 臉型/髮型：蓮方正下顎、胡渣與寬眉，深棕短髮貼頭；後輩為短髮肌肉青年，臉部細節保持成年感。
-構圖：開場對角線街角＋窗戶層疊；室內以前中後層堆器材與人物，矯正段採中央雙人構圖；收尾以剪影＋Logo；動態：暖霧、汗滴、呼吸白霧、門鎖轉動、毛巾晃動。
+構圖：開場對角線街角＋窗戶層疊；室內以前中後層堆器材與人物，矯正段採中央雙人構圖；收尾以剪影＋Logo；動態：暖霧、汗滴、呼吸白霧、門鎖轉動、毛巾晃動；**蓮全段以 aurora_gold/sodium_yellow 光暈與反射描邊維持主題色。**
 寫實細節：玻璃招牌霧面反射、槓鈴磨損、護腕皮革、汗珠沿肌肉滑動、夜風吹動鬢角、暖黃路燈拉出長影。
 無字幕、無商標/Logo/水印。」
 
@@ -134,7 +135,7 @@ Master(15s｜Muscle Line Aniki 2D｜16:9｜24fps｜手繪厚塗肌肉＋暖夜�
 光圈 {T2.8 傍晚外景／T2.4 室內肌肉特寫／T2.0 夜間街角}；快門角 180° 全段；
 對焦：開場層次由招牌→室內→蓮，矯正段單點後輩背肌再回到蓮手部，扛人段呼吸拉焦在肩膀與表情。
 光影：傍晚 4600K 逆光 rim、室內 5100K 軟箱＋暖吊燈補 rim、夜外 3400K 鈉燈＋街霧折射；對比中高，眼神光保留。
-色調/LUT：採 Muscle Line Aniki 2D palette，膚色偏暖琥珀、陰影微藍、去飽和 5%，鈉燈金線條勾勒肌肉。
+色調/LUT：採 Muscle Line Aniki 2D palette，膚色偏暖琥珀、陰影微藍、去飽和 5%，**蓮的 rim、毛巾、護腕亮點統一為鈉燈金（主題黃），不可換色。**
 聲音：96 BPM 貝斯＋刷弦 groove 隨剪輯；環境鐵片碰撞、呼吸、毛巾、鑰匙、門鎖；台詞含「很好，再一組就收操」「膝蓋別跑出去」「最後一組。真的最後」「再撐幾年，把這群小鬼都送上去就好」等；收尾 Logo 配單一下穩定低音鼓。
 轉場：街燈亮度匹配切→逆光遮擋→鐵片聲鞭移→毛巾掃過遮擋→呼吸聲內轉→門燈熄滅羽化→夜霧疊化至Logo。
 安全：玻璃招牌文字以圖標呈現，器材品牌移除，學員臉部不超近特寫。
@@ -165,7 +166,7 @@ Master(15s｜Muscle Line Aniki 2D｜16:9｜24fps｜手繪厚塗肌肉＋暖夜�
 意圖：建立訓練場與蓮的大哥式存在感
 基調：療癒＋盼望
 節奏域：慢入 1.0s → 穩定 1.8s
-美術要點：街角招牌、暖色玻璃窗、逆光輪廓
+美術要點：街角招牌、暖色玻璃窗、逆光輪廓、蓮專屬鈉燈金 rim
 
 #### Beat 1（0.0–1.0s）
 重點：外部街角招牌亮起，城市聲響引人入場
@@ -228,7 +229,7 @@ Angle A
 意圖：展示蓮的肌肉示範、貼身指導與玩鬧帶隊
 基調：悸動＋信賴
 節奏域：穩定 1.6s → 加速 2.5s
-美術要點：金屬器材、暖光、蒸汽與汗霧
+美術要點：金屬器材、暖光、蒸汽與汗霧、蓮身上所有亮點統一 aurora_gold
 
 #### Beat 4（3.0–4.0s）
 重點：蓮示範重量推舉
@@ -348,7 +349,7 @@ Angle A
 意圖：收店、夜間反思與標語定格
 基調：收束＋盼望
 節奏域：穩定 1.8s → 慢入 1.2s
-美術要點：昏暗訓練場、夜風街角、Logo 剪影
+美術要點：昏暗訓練場、夜風街角、Logo 剪影、最後以主題黃 Logo rim 收束
 
 #### Beat 10（9.5–11.0s）
 重點：打烊流程
@@ -404,5 +405,5 @@ Camera：
 Angle A
 構圖：中央近景→背景暗成剪影
 內容：蓮肩膀線條＋胡渣笑
-補充：浮出 Logo《鋼脈都市 MUSCLE LINE》與標語「強壯，是為了讓重要的人放心。」
+補充：浮出 Logo《鋼脈都市 MUSCLE LINE》與標語「強壯，是為了讓重要的人放心。」；Logo 線條與蓮剪影 rim 皆採主題鈉燈金。
 安全：文字為自家標語可保留
