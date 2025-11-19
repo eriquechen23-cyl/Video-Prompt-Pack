@@ -1,0 +1,14 @@
+name: Zenith Noon Real Look
+lut: Zenith-Overexpose-HDR
+saturation_adjust: -0.03  # 去飽和 3%
+contrast: high_linear
+highlight_rolloff: hard_clip_with_bloom
+shadow_floor: lifted_sand  # 影子被抹平
+white_point: 1.05  # 刻意過曝
+texture: tempered_glass_scale
+specular_detail: molten_gold_edges
+heat_warp_pass: micro_ripple_sheet
+notes:
+  - 強化正午過曝質感，暗部保留極少量沙紋，不產生藍色陰影。
+  - 鱗片表面需呈現多層玻璃反射並含熾橙內發光。
+  - 景深受熱浪影響需保持邊緣抖動，勿套柔焦濾鏡。

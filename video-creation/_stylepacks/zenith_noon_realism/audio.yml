@@ -1,0 +1,31 @@
+name: Zenith Noon Real Audio
+core_layers:
+  - baked_desert_wind
+  - heat_buzz_harmonics
+  - distant_metal_creak
+  - granular_sandfall
+impact_events:
+  - cue: solar_pressure_drop
+    sfx: subsonic_column_crush
+    level_db: -4
+    width: 140
+  - cue: gnomon_lock
+    sfx: glass_ring_sweep
+    level_db: -7
+    width: 120
+  - cue: thermal_wing_cut
+    sfx: vacuum_slice_thump
+    level_db: -6
+    width: 150
+  - cue: helio_dive
+    sfx: hypersonic_descend_roar
+    level_db: -2
+    width: 160
+voiceover:
+  language: zh-TW
+  tone: solemn_genderless
+  treatment: band_limit_mid_high
+mix_notes:
+  - 風聲需維持 -18 dBFS 底噪並含金屬共振尾音，對應封印結構。
+  - 光柱與日晷事件必須 sidechain 風聲 3 dB，凸顯衝擊。
+  - 結尾旁白僅 0.7s，定位中央，殘響 0.3s 後歸於靜音。
