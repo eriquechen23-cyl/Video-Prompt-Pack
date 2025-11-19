@@ -1,0 +1,28 @@
+name: Zenith Noon Real VFX
+heat_haze_layers:
+  - id: zenith_ground_glimmer
+    distortion: 0.42
+    speed: 1.6
+  - id: apex_sky_veil
+    distortion: 0.28
+    speed: 0.9
+solar_column_profile:
+  core_color: fff8cf
+  rim_color: ffad45
+  falloff: exponential_hard
+  particles: silica_dust_updraft
+wing_trail_shader:
+  refractive_index: 1.23
+  thickness_cm: 65
+  ember_specks: 0.18
+sundial_cage_geometry:
+  slices: 24
+  rotation_speed_rps: 0.85
+  cut_beam_width_cm: 8
+reflection_cache:
+  afterglare_delay_s: 2.2
+  intensity_scale: 1.35
+notes:
+  - 光柱與光籠採體積陰影貼圖而非 2D billboard，以利真實折射。
+  - 翅膀熱浪需在遠景造成背景折射，並帶動砂塵短暫懸浮。
+  - 尾巴日晷展開時，光條必須對應地面刻度動畫並可作為腳本判定區域。
