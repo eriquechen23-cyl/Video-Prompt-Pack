@@ -1,0 +1,19 @@
+name: Tempo Parry Beatshield Look
+noise_reduction: tempo_edge_clean
+saturation: cobalt_gold_balance
+contrast_profile: sharp_mid_high
+color_palette:
+  primaries: [midnight_navy, graphite_charcoal, pulse_cyan]
+  accents: [amber_gold, metronome_white]
+  skin_tone: warm_bronze_precision
+light_behaviour:
+  rim_light: beat_synced_arc
+  bounce_fill: stage_reflector
+line_enhancement: precise_vector_outline
+motion_blur_shutter: 172
+texture_pass: woven_kevlar_mesh
+notes:
+  - 以深藍與石墨灰為基底，金色節拍刻痕需保持清晰筆刷感並沿衣緣依序點亮。
+  - 半圓手套刻度環與 HUD 小節條必須能獨立調光，節奏強拍時升亮 15%。
+  - 肌膚維持健康小麥色並保留汗光，避免過度去飽和造成蠟感。
+  - 夜間決鬥場背景採冷藍氣霧，舞台燈打出節奏閃爍感，確保防禦光弧不被背景吞沒。
