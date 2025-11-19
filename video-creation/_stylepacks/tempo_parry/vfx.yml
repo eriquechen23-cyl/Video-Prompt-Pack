@@ -1,0 +1,34 @@
+name: Tempo Parry Beatshield VFX
+niagara_presets:
+  - tempo_ring_spawn
+  - beatshield_arc_swipe
+  - metronome_echo_release
+unity_vfx_graph:
+  - TempoParry.ShieldCascade.vfx
+  - TempoParry.FootstepNodes.vfx
+houdini_flipbooks:
+  - tempo_wave_slice
+  - zero_beat_crack
+shader_controls:
+  beat_ring_opacity: 0.68
+  hud_measure_scroll: 0.54
+  parry_arc_length: 0.73
+  footstep_glow_size: 0.45
+bloom_profile:
+  idle: 0.18
+  channeling: 0.55
+  release: 0.32
+light_trail:
+  tail_length: 0.48
+  decay_speed: 0.41
+static_charge_particles:
+  density: 0.36
+  color_mix: [pulse_cyan, amber_gold]
+audio_sync_hooks:
+  beat_click: sync_to_strong_hits
+  shield_snap: sync_to_mid_accents
+  heartbeat_drop: sync_to_zero_beat
+notes:
+  - 透明弧形護盾需呈半圓分段點亮，格檔瞬間留下 2 frame 的金色光帶。
+  - 《六連・回聲環》腳步光圈與地面符文必須對齊，粒子沿腳步方向延遲 0.08s 才衰減。
+  - 《零拍反擊》時，請在空中魔法彈邊緣加入細裂紋與倒流粒子，顏色略帶灰白以示靜音狀態。

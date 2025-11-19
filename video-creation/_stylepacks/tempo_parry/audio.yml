@@ -1,0 +1,31 @@
+name: Tempo Parry Beatshield Audio
+core_layers:
+  - arena_low_rumble
+  - pulse_drum_quarter
+  - hud_tick_hicut
+  - shield_sheen_air
+  - zero_beat_heart
+peak_events:
+  - timestamp: parry_chain
+    sfx: crystalline_clack_snap
+    level_db: -7
+    stereo_width: 120
+  - timestamp: footstep_guard
+    sfx: resonant_floor_ping
+    level_db: -9
+    stereo_width: 90
+  - timestamp: zero_beat_release
+    sfx: vacuum_heart_drop
+    level_db: -6
+    stereo_width: 140
+sidechain:
+  trigger_bus: pulse_drum_quarter
+  target_bus: ambience
+  reduction_db: 3.5
+low_freq_management:
+  lfe_focus_hz: 52
+  sub_trim_db: -8
+mix_notes:
+  - BGM 設定 110BPM，四拍主鼓需與 HUD 強拍同步並留 0.1s 漸弱尾巴給格檔聲穿出。
+  - 《六連・回聲環》腳步需加入金屬踏點與空腔共鳴，音量高於環境 3 dB。
+  - 《零拍反擊》把所有層級快速抽掉，只保留心跳與單次吸氣聲，結束後以 shield_sheen_air 輕刷帶回音場。
