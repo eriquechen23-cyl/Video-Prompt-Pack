@@ -1,0 +1,25 @@
+name: Moonlit Wolf Meme Audio
+music:
+  palette: cold_strings_with_subtle_taiko_then_meme_break
+  bpm: 76
+  progression: tense_minor_to_lighthearted_major
+ambience:
+  layers:
+    - distant_wind_in_valley
+    - snow_crunch_sparse_steps
+    - faint_echoed_howl_far
+foley:
+  - collar_tag_clink
+  - husky_tail_swish_on_snow
+  - wolf_nose_sniff
+  - paw_slide_on_ice
+voice_fx:
+  type: comedic_pitch_break_on_final_bark
+  placement: 7.5-9.0s when howl turns "汪"
+mix_targets:
+  loudness: -14_LUFS
+  peak: -1_dBTP
+  dynamic_range: -18_to_-6_dBFS
+notes:
+  - 嚎叫段保持空靈殘響，哈幾破音時瞬間放大 + 降低底噪，凸顯迷因落差。
+  - 巡山段留足雪踩聲與呼氣白霧聲，維持夜間臨場感。

@@ -1,0 +1,13 @@
+name: Moonlit Wolf Meme Lens Set
+primary_focals: [24, 35, 55, 85]
+shutter_angle: 180
+frame_support: gimbal_low_percent_with_slow_dolly
+handheld_usage: 0.05
+movement:
+  dolly: slow_forward_push_and_side_follow
+  note: 嚎叫與巡山段採緩慢推移，滑稽時刻可短暫手持感
+focus_method: layered_pull_from_alpha_wolf_to_haji
+usage_notes:
+  - 24/35mm 建立雪林空地與狼群隊形，月光帶少量鏡頭 flare。
+  - 55/85mm 用於哈幾表情、尾巴微抖與狼王嗅聞的親密特寫。
+  - 嚎叫慢動作可提升快門角至 200–220 以保留冷霧粒子。

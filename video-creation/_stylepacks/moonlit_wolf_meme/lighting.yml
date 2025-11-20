@@ -1,0 +1,20 @@
+name: Moonlit Wolf Meme Lighting
+key_light:
+  source: high_full_moon
+  color_temp: 4200K
+  intensity_ratio: 1.0
+fill:
+  source: snowfield_bounce
+  color_temp: 4300K
+  intensity_ratio: 0.55
+backlight:
+  source: rim_from_moon_direction_or_far_campfire_glow
+  color_temp: 4100K
+  notes: 為狼毛與哈幾項圈名牌加邊光，維持分離度
+atmosphere:
+  haze_level: 0.04
+  particles: light_snowflakes_with_visible_breath
+notes:
+  - 風向自山谷輕吹，狼毛和哈幾耳朵有細微流動。
+  - 月光色溫保持冷，少量暖背光避免畫面死灰，仍符合深夜質感。
+  - 地面雪反射作自然填光，避免額外器材感。
