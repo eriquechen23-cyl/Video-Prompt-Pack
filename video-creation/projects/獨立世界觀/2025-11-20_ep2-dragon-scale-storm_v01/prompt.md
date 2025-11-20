@@ -3,7 +3,7 @@
 來源劇本：用戶提供「黑龍化身東亞肌肉男披龍鱗」分鏡描述
 
 ## 一句話題材
-黑龍沿雷光俯衝墜地後崩解成鱗片與光環，凝聚為披著龍鱗披風的東亞壯碩男子，以低沉龍吼質問召喚者要毀滅還是拯救。
+黑龍沿雷光俯衝墜地後崩解成鱗片與光環，凝聚為披著龍鱗披風的東亞壯碩短髮俊朗男子，以低沉龍吼質問召喚者要毀滅還是拯救。
 
 ## 引用模板原文
 ### Global Master Prompt Template（`_core/global_prompt.md`）
@@ -88,8 +88,8 @@ palette:
 character:
   body: east_asian_mesomorphic; chest_shoulders_defined; skin_tone: warm_olive_with_scars
   eyes: vertical_gold_iris with faint glow synced to thunder hits
-  hair: black_wind_swept, damp at tips
-armor:
+  hair: black_short_cropped brushed back by wind; damp at tips
+  armor:
   scales: asymmetrical_black_gold overlap across clavicle, deltoid, upper back forming cloak tail
   cloak: scale_cape segmented, responds to wind and breath like living membrane
   texture: dry matte scales with metallic rims; underside shows sinew and smoked leather fibers
@@ -195,10 +195,10 @@ notes:
 ## Master Prompt 實際填寫
 ```
 Master(15s｜Dragon Scale Storm Realism｜16:9｜24fps｜雷雨中龍鱗變身質感)
-「夜間廢墟荒原的雷暴；翻湧烏雲、雷光縫隙、焦黑碎石；黑龍沿雷柱俯衝墜地後崩解成鱗片光環，凝聚為披龍鱗的東亞壯碩男子低聲質問召喚者。
+「夜間廢墟荒原的雷暴；翻湧烏雲、雷光縫隙、焦黑碎石；黑龍沿雷柱俯衝墜地後崩解成鱗片光環，凝聚為披龍鱗的東亞壯碩短髮俊朗男子低聲質問召喚者。
 鏡頭：開場 20mm 仰視遠景→240mm 長焦追隨→18mm 雲底仰角→28mm 地面略低→32mm 俯視黑環→35mm 側後圍繞→45mm 半身低角→50mm 側面環繞→65mm 近景略仰→85mm 唇部特寫，手持≤2% 只用於爆風震動。
 表演：男子由龍吼轉為沉穩呼吸，眉眼冷凝，最後帶出輕微嘲諷笑意與壓低聲線台詞。
-臉型/髮型：東亞輪廓、濃眉、削頰線條，濕黑髮往後掃；縱向金瞳；鬢角帶焦黑粉塵。
+臉型/髮型：東亞輪廓、濃眉、削頰線條，濕黑短髮往後梳貼頭；縱向金瞳；鬢角帶焦黑粉塵。
 構圖：開場留 20% 天空裂縫，主體多置中偏右，披風與雷光形成斜向導線，留白給雷鏈與黑環；動態：雲層翻湧、碎石震動、鱗片粒子逆落、披風波紋。
 寫實細節：龍鱗呈黑金邊緣且帶粗糙肌理，肩披風如鎧甲片層延伸至腰，胸腹肌保留汗光與血管；黑環吞光時僅保留輪廓 rim；雷電折射在鱗片上形成冷白筆刷。
 無字幕、無商標/Logo/水印。」
@@ -345,7 +345,7 @@ Angle 6
 意圖：展示龍鱗披風肌肉男子與對視台詞
 基調：決斷、自信
 節奏域：加速2.4–3.0 → 穩定1.5–2.4
-美術要點：黑金鱗片披風、濕黑髮、縱向金瞳、焦黑地面
+美術要點：黑金鱗片披風、濕黑短髮、縱向金瞳、焦黑地面
 
 #### Beat 7（9.0–10.5s）
 重點：肌肉線條成形
@@ -401,7 +401,7 @@ Camera：
 Angle 9
 構圖：頭肩近景，面向右上
 內容：對視瞬間
-補充：髮絲被風掀起
+補充：短髮被風掀起些微立起
 安全：無文字
 
 #### Beat 10（13.5–15.0s）
