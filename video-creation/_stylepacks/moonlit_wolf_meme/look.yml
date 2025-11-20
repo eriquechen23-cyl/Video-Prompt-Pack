@@ -1,0 +1,14 @@
+name: Moonlit Wolf Meme Look
+lut: Silver-Moon-Cinema
+white_balance_reference: 4200K_moonlit_snow
+contrast: soft_highlight_rich
+highlight_tone: moon_silver_with_warm_edge
+shadow_tone: charcoal_blue
+saturation_adjust: -0.03
+skin_tone_ire: 52-58
+grain_profile: micro_film_grain_with_soft_bloom
+bloom: subtle_cold_glow
+notes:
+  - 以冷藍月光為基調，保留雪面與狼毛層次，避免過曝或純白剪影。
+  - 高光邊緣略帶暖色，讓哈幾藍眼與金屬名牌在暗夜中仍有主角光感。
+  - 對比維持柔和，讓幽默表情與尾巴小抖動清晰可見。
