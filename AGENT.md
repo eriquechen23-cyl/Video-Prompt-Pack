@@ -23,6 +23,13 @@
 - 新風格樣板須標註適用情境與不可混用的限制，並附上 1～2 個代表性元素，方便後續檢索與一致化運用。
 - 若新風格可能重複使用，可於內部知識庫另行保存同名樣板全文，但在專案倉庫內仍僅保留 `prompt.md`，以維持檔案規範。
 
+## 行為與介面強化
+- 產出前必須要求且檢查輸入欄位：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 15）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
+- 輸出僅能是一份完整的 `prompt.md`，且必備 `_core`、`_stylepacks`、Master Prompt、Act/Beat/Angle 分鏡、Platform Layer 與 Self-Check 區塊。
+- 若劇情、世界觀或角色資訊有不確定處，禁止自行補完，必須在 `### Assumptions` 中列出假設並標註理由，供人類審核。
+- 每份 `prompt.md` 結尾強制加入「## AGENT Self-Check」，逐項回答：結構（Master/Act/Beat/Angle/timecode）、Physics & PBR（各幕重力/慣性與材質/光學）、Stylepacks 使用與衝突、Continuity（引用的上一集狀態機與 Persistent Elements）。
+- 每次提交前，Self-Check 必須主動揭露不足或不確定的項目，不得空白。
+
 ## 品質自檢清單（須全數達到 10/10）
 1. **結構完整度**：Master Prompt 與分鏡層級是否齊全、時間軸是否明確。
 2. **敘事一致性**：Act、Beat 與 Angle 描述是否連貫且符合風格樣板。
@@ -32,6 +39,14 @@
 6. **物理質感到位**：各幕是否寫明重力/慣性、布料或流體反應、光學行為與 PBR 材質參數，高級質感來源是否完整植入 Master Prompt 與分鏡。
 
 每個項目須自評 10/10 後方可提交，並於提交前再次確認無遺漏檔案或未依規定建立資料夾階層。
+
+## Prompt 結構擴充
+- 必備 `## Technical Specs`：統一列出 Aspect Ratio（9:16 直式）、FPS、180 度快門運動模糊、鏡頭組（24/35/50/75mm 用途註記）、景深與焦外、顆粒控制、色彩流程（log → filmic LUT → final contrast）、社群壓縮下的細節保留策略。
+- 新增 `## Platform Layer`：hook line（0–1s）、first-shot visual hook、字幕/Caption 建議（短版/長版）、縮圖構圖、Hashtag 建議、CTA 需求；同一支影片需提供 Hook A（故事向）與 Hook B（迷因/衝擊向）。
+- `_stylepacks` 內每個 Style 必須標註 Applicable for、Do NOT mix with、Default ON/OFF、Visual/Audio traits，避免風格衝突並清楚開關。
+- 每個 Angle 強制含 5 欄位：Camera、Lighting、Materials & Physics（含重力/慣性與 PBR）、Emotion & Performance、Audio & Transition。禁止以「同前」代稱。
+- 必備 `## Negative Instructions`：列出禁用內容（真實商標/名人/宗教政治符號等）、避免的畫面風格（過曝、廉價濾鏡、過度晃動/魚眼）、畫面尺度限制（PG-13 等）。
+- 在 `_core` 加入品牌層：品牌角色共同特徵、場景色調與光感、文案語氣（中日英混用節奏），作為全系列 Brand Bible。
 
 ## 連續劇集製作指引
 
@@ -59,3 +74,7 @@
 - 建立「Persistent Elements」表格，列出需跨集保留的 props、UI、字幕樣式、音樂動機與場景損毀狀態，並標註是否已使用、預計解除集數。
 - 為每項要素附上視覺或聲音參考（色碼、音階、紋理描述），確保不同集數的 prompt 作者都能複製相同質感。
 - 在每集交付前交叉檢查清單，若有新要素加入或舊要素退場，必須更新表格並在提交記錄中註明調整理由。
+
+### Platform 與敘事迭代
+- 每集結尾補充「Next Episode / Spin-off Ideas」：至少兩個主線延伸方向與一個番外/日常短片點子，方便回饋到下一集製作。
+- 在 `prompt.md` 中新增「## Changelog vs Previous Episode」：記錄角色外觀變化、場景損毀狀態、登場/退場的道具或 UI、停用的招式與要素。
