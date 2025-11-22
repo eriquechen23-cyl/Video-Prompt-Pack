@@ -207,7 +207,7 @@ impact_events:
     level_db: -2
     width: 160
 voiceover:
-  language: zh-TW
+  language: ja-JP  # 用日文配音交付，口條簡潔低沉
   tone: solemn_genderless
   treatment: band_limit_mid_high
 mix_notes:
@@ -272,6 +272,7 @@ notes:
 - Visual traits：
   - 匕首軌跡以銀白長曝光線條呈現，殘影透明度 35%，尾端帶粒子火花
   - 瞬移點閃爍白光 + 空氣折射圈，PBR 金屬反射跟隨殘影
+  - 瞬移時地面與角色腳下翻湧「暗影噴濺」特效，呈現低飽和墨黑裂隙與陰影拉扯，與正午高光形成對比
 - Audio traits：
   - 瞬移時短促「啪」聲搭配微弱空氣抽空；刀光拖尾帶 2kHz 亮鋒音
   - 軌跡節奏與 BPM 同步 1.1x，結尾加 sidechain 壓制環境風 2 dB
@@ -281,7 +282,7 @@ notes:
 - Brand Bible：鋼川烈＝暗鋼外套 + 琥珀眼高光 + 瞬移裂環步；語氣冷冽短句，偶帶日文擬聲；場景偏灰白石塊與強烈陽光，高光硬邊，速度線粒子協同。
 - Worldstate：正午（5400–5600K）廢墟廣場，裂開石板、倒塌石柱，灰白粉塵飄浮；巨型異獸漆黑粗糙皮膚，骨刺鋸齒狀，胸口紅光核心以 80 bpm 率脈動。
 - Camera Continuity：開場 24–28mm 略低角遠景強光；Act1 繞拍建立尺度；Act2 50–65mm 跟隨瞬移圓舞曲；Act3 85–135mm 壓縮碎片與漫畫格；全段 180° 快門，Angle 8 調 144°，Angle 12 可 180° 搭漫畫格掉落。
-- Physics & PBR：布料受重力 9.8 m/s² 下垂，瞬移滑步時產生後向拖拽；匕首金屬度 0.9 粗糙度 0.12 帶指紋；異獸皮膚粗糙度 0.6、法線凸起，骨刺金屬度 0.35；紅光能量霧有體積散射，噴散遵循拋物線；粉塵因踩踏形成湧升 2 m/s 再落下；瞬移閃光在空氣中產生折射圈。
+- Physics & PBR：布料受重力 9.8 m/s² 下垂，瞬移滑步時產生後向拖拽；匕首金屬度 0.9 粗糙度 0.12 帶指紋；異獸皮膚粗糙度 0.6、法線凸起，骨刺金屬度 0.35；紅光能量霧有體積散射，噴散遵循拋物線；粉塵因踩踏形成湧升 2 m/s 再落下；瞬移閃光在空氣中產生折射圈並拖出低飽和暗影噴濺，與正午高光交疊形成對比陰影。 
 - Optics：硬質頂光 + 反射亮斑；刀刃鏡面反射環境；景深鎖定眼睛與刀尖，背景粉塵輕散焦；速度線與刀光使用向量運動模糊；熱浪造成邊緣折射。
 - Master Prompt：
   - Master(15s｜2D anime daylight dagger teleport + manga impact｜9:16｜24fps｜sharp linework + noon glare)
@@ -346,13 +347,13 @@ notes:
 - Blocking：烈前踏一步，甩匕首到巨獸腳邊，瞬移到匕首旁滑步。
 - Camera：28mm 低機位貼地跟拍，側向滑軌 4m；對焦跟刀；快門 180°。
 - Lighting：陽光在刀弧上形成鏡面閃光；地面反光強烈。
-- Materials & Physics：刀弧空氣摩擦形成細微光尾；瞬移閃光折射粉塵；鞋底摩擦石板留下刮痕。
+- Materials & Physics：刀弧空氣摩擦形成細微光尾；瞬移閃光折射粉塵並拖出低飽和暗影霧絲貼地滑行；鞋底摩擦石板留下刮痕。
 - Emotion & Performance：烈神情專注，動作利落。
 - Audio & Transition：匕首破風聲 + 瞬移「啪」聲；直接切 Beat4。
 - Angle（瞬移示範）：
   - Camera：低角中央構圖，刀弧佔前景；手持 0%。
   - Lighting：頂光 + 匕首高光閃爍；粉塵在刀弧旁被光切割。
-  - Materials & Physics：瞬移閃光拉出折射圈，粉塵被推開 0.3m；滑步摩擦帶粉塵波。
+  - Materials & Physics：瞬移閃光拉出折射圈與墨黑暗影噴濺，粉塵被推開 0.3m；滑步摩擦帶粉塵波。
   - Emotion & Performance：烈身形低矮貼地滑行。
   - Audio & Transition：瞬移聲短促，落點帶砂石碎響；切入 Beat4。
 
@@ -362,13 +363,13 @@ notes:
 - Blocking：巨獸抬爪橫掃；烈丟第二把匕首到爪外側並瞬移滑過。
 - Camera：32mm 略仰角中景，滑軌側移 3m；對焦跟烈；快門 180°。
 - Lighting：爪影遮光形成強烈光影對比；刀光在爪下反射。
-- Materials & Physics：骨刺金屬度 0.35 帶磨損；爪掃起粉塵；烈滑過皮膚留白痕，摩擦產生熱。
+- Materials & Physics：骨刺金屬度 0.35 帶磨損；爪掃起粉塵；烈滑過皮膚留白痕，摩擦產生熱；瞬移時地面陰影向外撕裂形成暗影波紋。
 - Emotion & Performance：烈冷靜貼身，身體緊繃。
 - Audio & Transition：巨爪風切 + 刀刮皮膚聲；遮擋切至 Act2。
 - Angle（閃避瞬間）：
   - Camera：中景三分線，烈在右下躲避；鏡頭輕跟。
   - Lighting：爪子遮光形成動態陰影，刀光冷白突出。
-  - Materials & Physics：滑步拖出粉塵帶，匕首與皮膚接觸產生微火花。
+  - Materials & Physics：滑步拖出粉塵帶，瞬移殘留暗影晕在地面翻湧；匕首與皮膚接觸產生微火花。
   - Emotion & Performance：烈眼神仍鎖定胸口。
   - Audio & Transition：爪風低頻掃過左→右；鞭移進入 Act2。
 
@@ -381,13 +382,13 @@ notes:
 - Blocking：烈連續丟匕首至不同位置並瞬移，畫出大圓。
 - Camera：俯視 24mm，微旋轉繞拍；對焦跟烈；快門 180°。
 - Lighting：頂光形成烈與巨獸的強影；粉塵陰影呈弧。
-- Materials & Physics：每次瞬移粉塵被推成波；地面刮痕粗糙度 0.5；刀光留銀線殘影 35% 透明。
+- Materials & Physics：每次瞬移粉塵被推成波並夾帶暗影霧絲留下腳印狀殘影；地面刮痕粗糙度 0.5；刀光留銀線殘影 35% 透明。
 - Emotion & Performance：烈動作如舞步，呼吸短促。
 - Audio & Transition：節奏感配樂 + 刀風；光源匹配轉 Beat6。
 - Angle（圓舞曲軌跡）：
   - Camera：俯拍中央構圖，烈為圓心動態軌跡。
   - Lighting：硬光讓軌跡影子清晰。
-  - Materials & Physics：粉塵被拖成弧形，重力下落形成薄霧；瞬移圈折射光閃。
+  - Materials & Physics：粉塵被拖成弧形，重力下落形成薄霧；瞬移圈折射光閃並伴墨黑暗影卷起再消散。
   - Emotion & Performance：烈流暢旋轉，身形連續。
   - Audio & Transition：每落點伴「啪」聲定位；直接切 Beat6。
 
@@ -413,13 +414,13 @@ notes:
 - Blocking：烈接住回旋匕首，瞬移到胸口正前方，空中旋身。
 - Camera：50mm 中近景，略仰角；對焦眼→刀；快門 180°。
 - Lighting：頂光 + 胸口紅光作底光；背光 rim 勾邊。
-- Materials & Physics：烈在空中旋轉時衣襬因慣性上揚；匕首殘影拖尾；紅光照亮面部下緣。
+- Materials & Physics：烈在空中旋轉時衣襬因慣性上揚；匕首殘影拖尾；瞬移剛結束的暗影霧仍在腳下翻湧；紅光照亮面部下緣。
 - Emotion & Performance：表情決斷，肌肉緊繃準備突刺。
 - Audio & Transition：音樂降噪 0.3s 製造真空；直接切 Beat8。
 - Angle（蓄力姿態）：
   - Camera：三分線左側烈居中偏上；穩定器微推。
   - Lighting：紅光從下照，陽光 rim；高對比。
-  - Materials & Physics：衣襬布料粗糙度 0.3，因旋轉呈弧形拉伸；粉塵被旋轉氣流帶起。
+  - Materials & Physics：衣襬布料粗糙度 0.3，因旋轉呈弧形拉伸；瞬移暗影在地面留下暈痕，粉塵被旋轉氣流帶起。
   - Emotion & Performance：眼神鎖定裂縫，呼吸短促。
   - Audio & Transition：音樂頻寬收窄；硬切到 Beat8 黑白。
 
@@ -464,13 +465,13 @@ notes:
 - Blocking：烈丟最後匕首至遠處倒柱裂縫，瞬移跪地緩衝。
 - Camera：斜俯視 28mm 跟匕首飛行；對焦刀身→落點；快門 180°。
 - Lighting：陽光在刀身形成長形高光；背景紅光餘暈。
-- Materials & Physics：匕首旋轉帶金屬高光；瞬移閃光推開粉塵；落地膝蓋摩擦石板，粉塵揚起 0.3m。
+- Materials & Physics：匕首旋轉帶金屬高光；瞬移閃光推開粉塵並在落點投下暗影裂縫效果；落地膝蓋摩擦石板，粉塵揚起 0.3m。
 - Emotion & Performance：烈落地穩定吐氣。
 - Audio & Transition：匕首破風 + 瞬移啪聲；遮擋切 Beat11。
 - Angle（最後瞬移）：
   - Camera：跟拍刀身，三分線左上落點；鏡頭稍微鞭移。
   - Lighting：硬光沿刀脊流動；落點處陰影降低對比。
-  - Materials & Physics：粉塵被瞬移氣壓向外推；匕首刺入裂縫，石屑飛濺。
+  - Materials & Physics：粉塵被瞬移氣壓與暗影衝擊波向外推；匕首刺入裂縫，石屑飛濺。
   - Emotion & Performance：烈落地單膝緩衝，呼氣白霧微可見。
   - Audio & Transition：刀刺入聲清脆；遮擋切 Beat11。
 
