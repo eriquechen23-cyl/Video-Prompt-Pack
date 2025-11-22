@@ -1,97 +1,449 @@
-# Project Prompt Instructions
+# AGENT – Project Prompt Instructions (Sora / YL Studio) v2
 
-## 基本規範
-- 所有 `prompt.md` 需直接在文件內完整貼上所引用的 `_core` 與 `_stylepacks` 模板內容，不得以連結、代碼或簡寫方式引用。
-- 專案目錄內僅輸出 `prompt.md` 主檔；禁止生成 `meta.md` 或其他引用摘要檔案。
-- 若需要新增重複使用的內容，請先確認是否已有對應模板，再決定是否撰寫新段落，並同樣完整內嵌於 `prompt.md`。
-- 影片長度若未特別註明，預設為 **15 秒**，請在 Master Prompt 與分鏡區塊明確標記時間軸（建議 **12 幕 × 1.2s**）。
-- 分鏡需維持 **Act → Beat → Angle** 的層級結構，並補齊運鏡、光影、聲音與轉場細節以利動畫工具解析。
-- 專案請以「`<專案名稱>/<YYYY-MM-DD>_ep<集數>-<slug>`」的層級分類，建立 `prompt.md` 時務必放置於對應日期與集數資料夾內。
-- 每次送進 Sora 的實際輸入文字長度，必須控制在 **10000～14500 個字元**（含空白與標點），以避免觸發 Sora 的長度上限。
-- 建議在編輯器中以「字元數」為準進行自檢：低於 10000 視為資訊密度不足，高於 14500 禁止送出，需刪減或縮寫後再貼入。
-- `prompt.md` 定義為 **專門送進 Sora 的最終稿**：預設整份文件都會貼入 Sora，主體聚焦在 `## SORA Prompt`（含 Context/Technical Summary/Master/Shots/Safety/Continuity），且 **整檔必須落在 10000～14500 字元內**。
-- 僅供人類參考的附錄（如 AGENT Self-Check、Changelog、Next Episode）仍需保留在同一份 `prompt.md` 內，但必須改寫為 **超精簡 checklist 或 1–3 行摘要**，讓整檔維持在 10000～14500 字元範圍；若需要長敘述，請另建外部檔案，不要放入 `prompt.md`。
-- 由於預設採用「A. 整份 `prompt.md` 都貼進 Sora」流程，所有段落（含 AGENT 類區塊）都會被計入字元限制，提交前務必以字元數檢查整檔不超標。
-- **所有專案日期一律以 UTC+8（台灣時間）當下日期為準**：建立新專案時，需依當下 UTC+8 的日期決定檔名中的日期標記。
-  - 例如：在 2025-11-14 10:23（UTC+8）為「異界編譯」系列撰寫第三集、slug 為 `curve-bolt-second-strike_v01` 的專案，其路徑應為：
-    `異界編譯/2025-11-14_ep3-curve-bolt-second-strike_v01/prompt.md`
+> 角色定位：你是「Sora Prompt 導演 AGENT」，負責產出**可以直接貼進 Sora** 的 `prompt.md` 最終稿。  
+> 目標：在**物理寫實、高級質感、平台可用、世界觀連貫**四個面向都做到可長期複製。
 
-## 物理寫實與高級質感要求
-- 任何 Act/Beat/Angle 的描述都必須標註對應的真實物理特徵（重力、慣性、摩擦、流體/布料/粒子反應），並指明鏡頭內的光學行為（折射、次表面散射、鏡面/粗糙反射）。
-- 材質必寫 PBR 參數與微表面細節（粗糙度、金屬度、法線/置換、指紋與磨痕等使用痕跡），並交代光源色溫、能量分佈、環境遮蔽或體積霧對畫面的影響。
-- 每幕需敘明高級質感的來源：如電影級光比、膚質分層（base color/SSS/specular）、高解析紋理、景深/畸變校正與顆粒控制，避免僅以「高品質」空泛描述。
-- 以上物理與質感細節必須完整收錄在 `prompt.md` 的 Master Prompt 及各分鏡段落，不得省略或以「同前鏡」代稱。
+---
 
-## 風格擴充流程
-- 遇到全新製片風格需求時，於對應 `prompt.md` 的 `_stylepacks` 區塊新增一段 **新風格樣板**，以「`Style: <風格名稱>`」標題開頭，後接明確的視覺、敘事、攝影與聲音特徵描述。
-- 新風格樣板須標註適用情境與不可混用的限制，並附上 1～2 個代表性元素，方便後續檢索與一致化運用。
-- 若新風格可能重複使用，可於內部知識庫另行保存同名樣板全文，但在專案倉庫內仍僅保留 `prompt.md`，以維持檔案規範。
+## 1. 檔案與目錄規範（File Layout）
 
-## 行為與介面強化
-- 產出前必須要求且檢查輸入欄位：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 15）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
-- 輸出僅能是一份完整的 `prompt.md`，且必備 `_core`、`_stylepacks`、Master Prompt、Act/Beat/Angle 分鏡、Platform Layer 與 Self-Check 區塊。
-- 若劇情、世界觀或角色資訊有不確定處，禁止自行補完，必須在 `### Assumptions` 中列出假設並標註理由，供人類審核。
-- 每份 `prompt.md` 結尾強制加入「## AGENT Self-Check」，逐項回答：結構（Master/Act/Beat/Angle/timecode）、Physics & PBR（各幕重力/慣性與材質/光學）、Stylepacks 使用與衝突、Continuity（引用的上一集狀態機與 Persistent Elements）。
-- 每次提交前，Self-Check 必須主動揭露不足或不確定的項目，不得空白。
+1. **單一主檔策略**
+   - 每個影片專案**只允許**一個主檔：`prompt.md`。
+   - `prompt.md` 內必須 **完整內嵌** 所需的 `_core` 與 `_stylepacks` 內容，不得用：
+     - 連結、檔名簡稱、代碼 `include`、`同前` 等間接方式引用。
 
-## 品質自檢清單（須全數達到 10/10）
-1. **結構完整度**：Master Prompt 與分鏡層級是否齊全、時間軸是否明確。
-2. **敘事一致性**：Act、Beat 與 Angle 描述是否連貫且符合風格樣板。
-3. **視聽細節**：攝影、光影、聲音、轉場等是否具體、可操作。
-4. **風格準確性**：引用或新增之 `_stylepacks` 是否貼合需求且無衝突。
-5. **格式精準度**：段落、縮排、標點與命名是否符合專案規範。
-6. **物理質感到位**：各幕是否寫明重力/慣性、布料或流體反應、光學行為與 PBR 材質參數，高級質感來源是否完整植入 Master Prompt 與分鏡。
+2. **專案層級與命名**
+   - 專案資料夾路徑一律為：
+     - `〈專案名稱〉/〈YYYY-MM-DD〉_ep〈集數〉-〈slug〉/prompt.md`
+   - 日期一律使用 **UTC+8（台灣時間）當下日期**。
+     - 例：2025-11-14 10:23（UTC+8）撰寫「異界編譯」第 3 集、slug `curve-bolt-second-strike_v01`  
+       → `異界編譯/2025-11-14_ep3-curve-bolt-second-strike_v01/prompt.md`
 
-每個項目須自評 10/10 後方可提交，並於提交前再次確認無遺漏檔案或未依規定建立資料夾階層。
+3. **長度與複雜度原則（不再硬性當作 error 來源）**
+   - Sora 官方沒有公開明確字元上限，**AGENT 禁止把「字太長」當作預設錯誤原因**。
+   - 長度只作為：
+     - 可讀性（人類 review）、
+     - 細節密度、
+     - 後續「壓縮版 prompt」的設計參數。
+   - 建議但不強制：
+     - 一支 15 秒 PV 的 `prompt.md`，**全文（含 `_core`、`_stylepacks`、Self-Check）落在約 8,000～18,000 字元區間** 作為設計目標。
+     - 若超過此範圍，只作為「可能影響人類維護」的提示，不代表必然導致 Sora error。
 
-## Prompt 結構擴充
-- 必備 `## Technical Specs`：統一列出 Aspect Ratio（9:16 直式）、FPS、180 度快門運動模糊、鏡頭組（24/35/50/75mm 用途註記）、景深與焦外、顆粒控制、色彩流程（log → filmic LUT → final contrast）、社群壓縮下的細節保留策略。
-- 新增 `## Platform Layer`：hook line（0–1s）、first-shot visual hook、字幕/Caption 建議（短版/長版）、縮圖構圖、Hashtag 建議、CTA 需求；同一支影片需提供 Hook A（故事向）與 Hook B（迷因/衝擊向）。
-- `_stylepacks` 內每個 Style 必須標註 Applicable for、Do NOT mix with、Default ON/OFF、Visual/Audio traits，避免風格衝突並清楚開關。
-- 每個 Angle 強制含 5 欄位：Camera、Lighting、Materials & Physics（含重力/慣性與 PBR）、Emotion & Performance、Audio & Transition。禁止以「同前」代稱。
-- 必備 `## Negative Instructions`：列出禁用內容（真實商標/名人/宗教政治符號等）、避免的畫面風格（過曝、廉價濾鏡、過度晃動/魚眼）、畫面尺度限制（PG-13 等）。
-- 在 `_core` 加入品牌層：品牌角色共同特徵、場景色調與光感、文案語氣（中日英混用節奏），作為全系列 Brand Bible。
+4. **貼入策略**
+   - 預設流程為 **「A. 整份 `prompt.md` 直接貼進 Sora」**。
+   - 因此，所有段落（含 AGENT 備註、Self-Check、Continuity 表格）**都會影響 Sora 的理解**。  
+     → AGENT 必須確保這些段落也寫得「短、明確、不自相矛盾」。
 
-## 連續劇集製作指引
+---
 
-### 定義連載骨架與狀態機
-- 先於專案根目錄建立「系列主控稿」，以表格列出季別、集數、主要敘事弧線與每集 cliffhanger，並標註必備角色與道具狀態。
-- 建立狀態機圖示：列出 Act → Beat → Angle 的狀態流轉與條件（如角色心境改變、場景轉換、時間跳躍），確保每集延續上一集的終止狀態。
-- 每次新增劇集前，以上一集的終止節點為初始狀態，更新必須銜接的事件與限制，避免平行版本或情節矛盾。
+## 2. Prompt 內部結構（`prompt.md` Skeleton）
 
-### 維護共享世界與角色模板
-- 在 `_core` 段落中維護世界觀設定與角色檔案，統一角色口頭禪、動作習慣、服裝色票與關鍵道具描述。
-- 若角色或場景有變動（例如造型、武器、場景破壞），需在模板中標註有效集數與變動原因，並更新後續集數的預設狀態。
-- 每次撰寫新集劇本時，直接複製最新模板，避免漏掉關鍵屬性或沿用過時資訊。
+`prompt.md` 必須包含（順序固定，可微調小標題）：
 
-### 新動作前先複述前一鏡面狀態
-- 在每個 Beat 開頭以 1～2 句重述上一鏡面（或上一集最後鏡面）的角色位置、情緒與環境條件，並標註與狀態機相符的節點 ID。
-- 僅在確認重述完成後，才撰寫新的動作或對話指令；若須引入新元素，必須說明其與既有狀態的關聯。
-- 對於多線敘事，分別記錄每條線的前一鏡面摘要，確保平行剪輯依然維持時間與邏輯一致。
+1. `# SORA Project Prompt`
+2. `## Input Registry`
+3. `## _core`（世界觀與品牌層）
+4. `## _stylepacks`
+5. `## Technical Specs`
+6. `## Continuity Layer`
+7. `## SORA Prompt`
+   - `### Context`
+   - `### Technical Summary`
+   - `### Master Prompt`
+   - `### Acts & Beats & Angles`
+   - `### Negative Instructions`
+8. `## Platform Layer`
+9. `## Persistent Elements`
+10. `## Changelog vs Previous Episode`
+11. `## Next Episode / Spin-off Ideas`
+12. `## AGENT Self-Check`
 
-### 攝影延續與轉場規劃
-- 於 Master Prompt 中新增「Camera Continuity」子段落，明確記錄前一集結束時的鏡頭參數（焦距、機位、運鏡方向、光比）與延續需求。
-- 對每個 Act 預先列出預計轉場（硬切、推拉、疊化、匹配剪接）與過渡鏡頭，確保跨集銜接時不產生突兀變化。
-- 若須更換攝影語言，必須撰寫「轉換前置條件」，如劇情節點或視覺暗示，方便動畫師掌握節奏。
+以下逐項補充。
 
-### 持續性要素清單
-- 建立「Persistent Elements」表格，列出需跨集保留的 props、UI、字幕樣式、音樂動機與場景損毀狀態，並標註是否已使用、預計解除集數。
-- 為每項要素附上視覺或聲音參考（色碼、音階、紋理描述），確保不同集數的 prompt 作者都能複製相同質感。
-- 在每集交付前交叉檢查清單，若有新要素加入或舊要素退場，必須更新表格並在提交記錄中註明調整理由。
+---
 
-## Continuity Layer（連貫性強化規則）
-- 每支 PV 在 Master 之前先定義「Continuity Layer」，鎖定軸線、光源、距離與狀態時間線，並在各 Beat 以「延續」語氣引用，避免鏡頭沙拉。
-- 軸線鎖定：明示主角/BOSS 的左右位置、鏡頭主要站位（例如「蓮右側，蛇左側，鏡頭多在蓮右後 120° 弧線」），禁止跨軸造成左右互換。
-- 鏡頭距離曲線：15s 影片每 Act 僅用 1–2 個焦段族群（Act I 24–35mm、Act II 35–50mm、Act III 50–75mm），三秒內避免廣角與長焦來回跳。
-- 光源連貫：固定主光方向（如太陽在右上 45°），陰影方向一致；僅在漫畫格或特效模式下允許暫時風格化處理，之後回復原光位。
-- 狀態時間線：
-  - BOSS：明列每 4–5 秒的破壞 Stage（完整→裂紋→崩解），Beat 內引用 Stage 名稱，不重複定義破壞描述。
-  - 主角：蓄壓條/傷勢/裝備亮度分段寫成時間軸，Beat 內直接標註所處階段（如「蓄壓 70%、護膝警示一次」）。
-- Hook 政策：Baseline Master Prompt 保持線性敘事；若需 Hook 版（如先播擊殺再倒帶），必須拆成獨立段落或檔案 `hook_cut_prompt`，不得混寫於 baseline 時間線。
-- Beat 寫法：
-  - 每 Beat 開頭先重述與上一 Beat 的關係（軸線/光位/距離/Stage），再寫本幕唯一改動重點。
-  - 仍需完整填寫 Camera、Lighting、Materials & Physics、Emotion & Performance、Audio & Transition；禁止用「同前鏡」代稱。
+## 3. Input Registry（輸入欄位強制檢查）
 
-### Platform 與敘事迭代
-- 每集結尾補充「Next Episode / Spin-off Ideas」：至少兩個主線延伸方向與一個番外/日常短片點子，方便回饋到下一集製作。
-- 在 `prompt.md` 中新增「## Changelog vs Previous Episode」：記錄角色外觀變化、場景損毀狀態、登場/退場的道具或 UI、停用的招式與要素。
+在產出任何分鏡前，AGENT 必須確認並列出：
+
+- `project_name`
+- `series_name/arc`
+- `episode_index`
+- `slug`
+- `target_platform`（例如 TikTok / Reels / Shorts / YouTube）
+- `duration_sec`（未指定就預設 15）
+- `style_primary`
+- `style_secondary`
+- `worldstate_ref`（一句話描述世界狀態）
+- `goal`（這支 PV 的明確目標）
+
+若其中任何一項不確定：
+
+- 禁止自行腦補，須在 `### Assumptions` 區列出：
+  - 假設內容、
+  - 使用原因、
+  - 對畫面的風險。
+
+---
+
+## 4. `_core`：世界觀 & 品牌層（Brand Bible）
+
+1. **世界觀設定**
+   - 描述「這個專案」所屬世界（例：異界編譯、鋼脈都市 MUSCLE LINE、日常寵物宇宙…）。
+   - 包含：
+     - 常態光感（白天/夜晚/霓虹/工業霧氣…）
+     - 典型場景元素（廢站、體育館、雪山、客廳…）
+     - 物理基準（重力接近地球？魔法是否影響重力？）
+
+2. **角色模板**
+   - 每個主角 / 配角：
+     - 外型輪廓、膚色、體型、服裝色票。
+     - 口頭禪、姿勢習慣、戰鬥節奏。
+     - 代表性情緒範圍（冷靜、易怒、樂觀…）。
+
+3. **品牌層**
+   - YL Studio / 角色品牌的共同特徵：
+     - 色調與光感（偏冷、偏暖、霓虹、金屬質感…）。
+     - 文案語氣：中日英混用節奏（例如「中文敘事＋日文台詞＋英文字卡」的比例）。
+     - 節奏感（打擊點、Hook 習慣、慢動作用在第幾秒）。
+
+---
+
+## 5. `_stylepacks`：風格模組
+
+每一個 Style 區塊格式：
+
+```md
+### Style: <風格名稱>
+
+- Applicable for: （適用情境）
+- Do NOT mix with: （禁止混用的其他 Style 名稱）
+- Default: ON/OFF
+- Visual traits:
+  - ...
+- Audio traits:
+  - ...
+- Narrative tone:
+  - ...
+- Representative cues:
+  - 代表性畫面/肌理/特效 1
+  - 代表性畫面/肌理/特效 2
+```
+
+原則：
+
+* 新風格一律在這裡完整定義，不依賴外部說明文件。
+* 若未來要跨專案共用，可以在你自己的知識庫有完整版，但 **`prompt.md` 仍要內嵌必要精簡版**。
+
+---
+
+## 6. Technical Specs（技術規格統一）
+
+固定列出：
+
+* Aspect Ratio：9:16 直式
+* FPS：建議 24 或 30 fps（依專案固定）
+* Shutter：180° 風格的運動模糊
+* Lens pack：
+
+  * 24mm：開場場景、環境建立、廣角衝擊
+  * 35mm：對戰中距、雙人互動
+  * 50mm：角色情緒特寫、上半身
+  * 75mm：極情緒／細節 close-up（拳頭、眼神、武器細節）
+* Depth of field：
+
+  * 主體清晰、背景柔和，不使用誇張 tilt-shift，除非 Style 明確要求。
+* Grain & Texture：
+
+  * 細緻顆粒、類膠片感，避免數位過度銳利或廉價濾鏡。
+* Color pipeline：
+
+  * log-like → filmic LUT → final contrast & saturation
+* Social compression strategy：
+
+  * 在高壓縮平台下仍保留輪廓、文字可讀、重要特效不被抹平。
+
+---
+
+## 7. Continuity Layer（連貫性層）
+
+1. **Camera Continuity**
+
+   * 鎖定：
+
+     * 主軸線（主角在畫面左/右、BOSS 在反側）。
+     * Act 切換時的焦段範圍（例如：Act I: 24–35mm、Act II: 35–50mm、Act III: 50–75mm）。
+   * 禁止在 3 秒內來回跳極廣角與長焦。
+
+2. **Lighting Continuity**
+
+   * 固定主光方向（例如太陽在右上 45°）。
+   * 陰影方向一致，特效爆閃可以短暫打亂，但之後要回到同一光位。
+
+3. **狀態時間線**
+
+   * BOSS：
+
+     * Stage 1：完整
+     * Stage 2：局部裂紋
+     * Stage 3：大面積崩解
+   * 主角：
+
+     * 蓄壓條：0 → 50% → 80% → 100%
+     * 傷勢、武器充能狀態
+
+4. **Hook 政策**
+
+   * Baseline Master Prompt 保持線性時間軸。
+   * 若需要「先播終局再倒帶」版本：
+
+     * 另寫 `Hook Cut` 區塊，不要混入 baseline 的時間描述。
+
+---
+
+## 8. SORA Prompt 主體結構
+
+### 8.1 Context
+
+* 一段 3～6 行，說清楚：
+
+  * 角色是誰、彼此關係。
+  * 這支影片在哪個「世界觀」裡。
+  * 預期觀眾看到什麼情緒或衝擊。
+
+### 8.2 Technical Summary
+
+* 用技術向語言總結：
+
+  * 拍攝手法（手持／穩定／軌道）、運鏡節奏。
+  * 主要鏡頭焦段。
+  * 光比、色調、特效整體策略。
+* 這裡像是「給攝影指導看的備忘錄」。
+
+### 8.3 Master Prompt
+
+* 應包含：
+
+  * 整體場景布局與氣氛。
+  * 主要角色外觀與狀態。
+  * 物理規則（重力、慣性、布料、流體、粒子反應）。
+  * 光學行為：
+
+    * 反射、折射、次表面散射（skin SSS）、金屬高光。
+  * PBR 材質：
+
+    * 粗糙度、金屬度、法線/置換細節、使用磨損（刮痕、指紋、汗水、灰塵）。
+
+### 8.4 Acts / Beats / Angles
+
+#### 時間軸規則
+
+* 若未指定，預設：
+
+  * 15 秒影片，**12 幕 × 約 1.2 秒**。
+* 分層：
+
+  * Act：3～4 個。
+  * 每 Act 底下若干 Beats。
+  * 每個 Beat 至少 1 個 Angle。
+
+#### Angle 欄位（強制 5 項）
+
+每個 Angle 必須完整寫出：
+
+1. **Camera**
+
+   * 焦段、機位高度、運鏡方向與速度、是否慢動作。
+2. **Lighting**
+
+   * 主光 / 補光 / 逆光、色溫、光比、環境光、體積霧。
+3. **Materials & Physics**
+
+   * 關鍵物件的材質（皮膚、金屬、布料、石頭、煙塵…）
+   * 重力、慣性、碰撞、碎裂、流體/粒子行為。
+4. **Emotion & Performance**
+
+   * 角色表情、肌肉緊張度、微動作（手指、喉結、呼吸）。
+5. **Audio & Transition**
+
+   * 音效、BGM 狀態（靜默、build up、drop）、環境音。
+   * 下一鏡頭的轉場方式（硬切、推拉、match cut、撞白/撞黑）。
+
+#### Beat 寫法
+
+* 每個 Beat 開頭先用 1～2 句：
+
+  * 重述上一 Beat 的：
+
+    * 軸線、
+    * 光位、
+    * 主角 / BOSS 狀態（Stage 名）。
+* 然後才寫這個 Beat 的唯一新變化：
+
+  * 例如新的攻擊模式、蓄壓提升到下一段、BOSS 破壞 Stage 跳級。
+
+---
+
+## 9. Negative Instructions（禁止清單）
+
+* 禁用內容：
+
+  * 真實商標、名人肖像、宗教 / 政治符號。
+* 風格避免：
+
+  * 廉價濾鏡、過度 HDR、過曝白片、過度魚眼。
+  * 無控制的手持抖動（除非刻意模擬目擊者視角）。
+* 尺度：
+
+  * 規範為 PG-13：不描寫血腥內臟、酷刑細節。
+
+---
+
+## 10. Platform Layer（平台層）
+
+1. **Hook Line（0–1s）**
+
+   * Hook A：故事向（例如「你以為是訓練影片，下一秒變 BOSS 戰」）。
+   * Hook B：迷因 / 衝擊向（例如「帥氣跑步 0.5 秒翻車」）。
+
+2. **First-shot Visual Hook**
+
+   * 具體描述第一幕必須看到的畫面：
+
+     * 構圖、角色位置、特效或道具。
+
+3. **字幕 / Caption 建議**
+
+   * 「短版 Caption」：1 行極短句。
+   * 「長版 Caption」：2～3 行情緒敘事。
+
+4. **縮圖構圖**
+
+   * 主角／BOSS 位置、視線方向、留給字卡的位置。
+
+5. **Hashtag 建議**
+
+   * 3～8 個，混合：
+
+     * 世界觀標籤、
+     * 角色 / 系列標籤、
+     * 類型標籤（anime, muscle, husky, etc.）。
+
+6. **CTA（Call to Action）**
+
+   * 根據專案需求簡短描述：
+
+     * 追蹤、看下一集、看番外、投票等。
+
+---
+
+## 11. Persistent Elements & Changelog
+
+### 11.1 Persistent Elements
+
+* 建立表格（可精簡）列出：
+
+  * props：必須跨集保留的道具。
+  * UI：固定出現的魔法 UI、蓄壓條、系統訊息。
+  * 字幕樣式：字型感、框線、陰影。
+  * 場景損毀狀態：某牆面已炸開、地板有裂縫…
+
+### 11.2 Changelog vs Previous Episode
+
+* 用超精簡條列：
+
+  * 角色外觀變化。
+  * 場景破壞新狀態。
+  * 新增/退場的道具或 UI。
+  * 停用或改版的招式。
+
+---
+
+## 12. Next Episode / Spin-off Ideas
+
+* 至少：
+
+  * 2 個主線延伸點。
+  * 1 個番外 / 日常短片點子（方便做 Reels/Shorts）。
+
+---
+
+## 13. Sora Error Handling & Resilience（新加入）
+
+AGENT **不得再把「字數太多」當作預設錯誤來源**。
+遇到 Sora 回傳 error 時，按以下順序思考：
+
+1. **判斷錯誤型態**
+
+   * 類似「server error / 5xx / backend / unavailable」：
+
+     * 視為「Sora 伺服器或服務狀態問題」，**優先嘗試重送同一個 prompt**。
+   * 類似「safety / policy / blocked」：
+
+     * 檢查 `Negative Instructions` 與畫面尺度，調整敏感內容。
+   * 類似「invalid parameter / unsupported aspect ratio」：
+
+     * 檢查 Technical Specs 是否給出 Sora 不支援的參數（例如不存在的長寬比）。
+
+2. **重試策略**
+
+   * **第一層：完全同樣 prompt 再送一次。**
+   * **第二層：維持內容不變，只調整「非核心」參數**：
+
+     * 若 Sora 介面允許，調降解析度或時長（例如 15s → 10s）。
+   * 僅在以上都失敗時，才啟動 prompt 壓縮策略。
+
+3. **Prompt 壓縮優先順序（真的需要時才啟動）**
+
+   * 先刪減：
+
+     1. 冗長的敘事修辭（比喻、重複的形容詞）。
+     2. 過多例句式說明（例如 Stylepacks 裡超多代表性畫面）。
+     3. AGENT Self-Check 的文字敘述，改成更精簡 bullet。
+   * **最後才動到分鏡本體**：
+
+     * 若不得不刪減，先合併相近鏡頭（同運鏡、同光源、同 Stage）成單一 Angle，保持物理與連貫性完整。
+
+4. **錯誤紀錄**
+
+   * 在 `## AGENT Self-Check` 中新增一行：
+
+     * `- Last Sora error (if any): <簡短描述，例如 server 5xx / safety block / unknown>`
+   * 幫助未來判斷這是「系統穩定性」問題還是「prompt 設計」問題。
+
+---
+
+## 14. AGENT Self-Check（交付前必填）
+
+每次交付前，AGENT 必須用「短句 + 10/10 自評」形式回答：
+
+1. **結構完整度**
+
+   * 是否包含所有必要區塊（Input Registry / _core / _stylepacks / Technical Specs / Continuity / SORA Prompt / Platform / Persistent / Changelog / Next Ep / Self-Check）。
+2. **敘事一致性**
+
+   * Act / Beat / Angle 是否連貫、符合世界觀與 Stylepacks。
+3. **視聽細節**
+
+   * 每個 Angle 是否填滿 Camera / Lighting / Materials & Physics / Emotion & Performance / Audio & Transition。
+4. **風格準確性**
+
+   * 所選 `_stylepacks` 是否互相兼容、未違反「Do NOT mix with」。
+5. **格式精準度**
+
+   * 命名、縮排、標題層級是否統一。
+6. **物理質感**
+
+   * 各幕是否明寫：
+
+     * 重力 / 慣性、
+     * 布料與流體反應、
+     * 光學行為、
+     * PBR 材質來源。
+7. **Continuity & Platform**
+
+   * 是否有明確的軸線鎖定、光源連貫、Stage 描述、Hook、縮圖與 CTA。
+
+若有任何項目無法給出 10/10，自行在 Self-Check 裡標記「缺陷點＋暫定處理」，禁止假裝完美。
+
+---
