@@ -204,8 +204,8 @@ notes:
 
 ## Technical Specs
 - Aspect Ratio: 9:16 直式；Resolution Target: 1080x1920；Color Space: Rec.709 gamma 2.4；FPS: 24；快門角 180°；動態模糊依 Stylepack 指定 165–180°。
-- Lenses: 24mm 建立環境與熱浪折射、35mm 跟隨步伐、50mm 近景特寫、75mm 壓縮漫畫格衝擊；景深中等，近景 f/2.2 保留背景熱扭曲。
-- Camera Continuity: 由高俯建立 → 低角登場 → 蛇頭特寫魚眼 → 側向跟 → 仰角蓄力 → 斜 3/4 → 近景旋身 → 警示特寫 → 胸像 → 慢動作環繞 → 漫畫格 → 拉遠收尾；運鏡以滑軌＋穩定器為主，手持不超過 3%。
+- Lenses: Act I 24–35mm（環境與熱浪折射），Act II 35–50mm（節奏中景），Act III 50–75mm（蓄力特寫與漫畫格衝擊）；景深中等，近景 f/2.2 保留背景熱扭曲，三秒內避免焦段跳換。
+- Camera Continuity: 軸線固定「蓮右、蛇左」，鏡頭沿蓮右後 120° 弧線滑軌/穩定器移動；Act I 平穩建立位置，Act II 保持側向與 3/4 角跟隨節奏，Act III 收縮到 50–75mm 近景與漫畫格後回到 55mm 收尾；手持不超過 3%。
 - Color Pipeline: log → filmic LUT → final contrast；保留黑線與金黃高光，不可過度去飽和；抗社群壓縮：邊緣加粗、粒子對比提升 8%、高光加 2% bloom。
 - Grain & Compression: 紙感細紋 0.12、膠片顆粒 0.08 混合；避免過度去噪，保留石面微粗糙。
 - Physics Hooks: 重力 9.81 m/s²，碎石拋物線需帶出落點粉塵；熱浪折射 index 1.02–1.05；毒霧流體阻尼 0.35；戰槌回彈與肩膀慣性需遵守。
@@ -224,11 +224,19 @@ notes:
 
 ## Platform Layer
 - Hook A（故事向 0–1s）：蛇尾拍地與熱浪扭曲，單一下沉重鼓「ドン」，字幕提要「正午訓練，遇上石甲巨蛇」。
-- Hook B（衝擊向 0–1s）：漫畫格瞬間與「ドゴォン」擬聲字閃白做開場，再倒帶到蓄力；強調節奏與爆裂感。
+- Hook B（衝擊向 0–1s，獨立 `hook_cut_prompt`）：取 Beat 11 漫畫格擊殺 0.8s 作鉤子，再硬切回 baseline 0.0s；不得在 baseline 內混用倒敘指示。
 - Caption 建議：短版「把力量存滿，只為那一槌。」｜長版「正午石殿對決，朝倉蓮用訓練節奏擊碎石甲巨蛇。」
 - Thumbnail: 斜前方蓄力姿勢，黑黃蓄壓紋全亮，背景石殿與巨蛇頭部半入畫；粗黑外框＋金黃標題條。
 - Hashtag: #蓄壓重槌師 #BossFight #Anime #BlackGold #15sPV
 - CTA: 影片收尾淡出時加「Follow for next drill」字幕，0.6s 內完成。
+
+## Continuity Layer（軸線 / 距離 / 光源 / 狀態時間線）
+- Axis Lock：神殿位畫面上方、岩地向下延伸；朝倉蓮保持畫面右側，石甲巨蛇偏左；鏡頭多沿蓮右後 120° 弧線移動，不跨軸讓左右對調。
+- Camera Distance Curve：Act I 24–35mm 建立環境；Act II 35–50mm 維持中近景與節奏；Act III 50–75mm 聚焦蓄力與漫畫格擊殺，收尾回 55mm 中景，三秒內避免廣角/長焦反跳。
+- Light Direction Lock：太陽固定右上 45°，光溫 5600–5800K；蓮右肩持續白金 rim，地面陰影朝左下；漫畫格可暫轉黑白速度線後回復同光位。
+- Boss State Timeline：Stage 1（0–4s）石甲完整僅舊刮痕；Stage 2（4–8s）第一槌後局部裂、第二槌後大裂紋；Stage 3（8–15s）裂紋發光待崩解、擊殺後碎裂成核。
+- Ren State Timeline：蓄壓條 0–4s 僅 1 格微光；4–8s 逐格亮至 70% 並隨揮槌消耗；8–12s 滿格閃爍，最終槌後瞬間清零；護膝 0–6s 無警示、6–9s 紅黃閃一次、9–15s 再提醒但站穩。
+- Beat Writing Rule：每 Beat 先標註「延續 Axis/Light/Stage/Lens 群組」再寫唯一新重點；各 Angle 仍需完整 Camera / Lighting / Materials & Physics / Emotion & Performance / Audio & Transition 欄位。
 
 ## Master Prompt（含物理與質感）
 Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪質感)
@@ -259,6 +267,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 01（0.0–1.2s）｜白日神殿前的巨蛇｜意圖：建立場景＋節奏起點
 - Blocking：蛇盤踞中心，尾巴緩慢拍地；鏡頭俯視拉遠。
+- Continuity：Axis「蓮右蛇左」初始建立、主光右上 45°、Camera 24–35mm 群組；Boss Stage 1 石甲完整、Ren 蓄壓條 1 格微光。
 - Angle A — 高俯中遠景建立
   - Camera：24mm 俯拍，滑軌升降，快門角 180，對焦前→中→後層次。
   - Lighting：正午直射 5600K，硬陰影；熱浪造成地面反射微抖動。
@@ -268,6 +277,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 02（1.2–2.4s）｜朝倉蓮登場｜意圖：引入主角、穩重氣場
 - Blocking：蓮站在石階上方踏下一階。
+- Continuity：延續 Axis Lock 與正午光位，維持 24–35mm 群組；Boss 仍 Stage 1，Ren 蓄壓仍低量，鏡頭位置略下移但不跨軸。
 - Angle A — 低角度推近中景
   - Camera：35mm 低角度向上，穩定器前推，快門角 180；對焦單點在眼睛隨步伐微拉。
   - Lighting：背光 rim 5700K，肩線強烈白金邊；地面反光補光 0.25。
@@ -277,8 +287,9 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 03（2.4–3.6s）｜巨蛇先發制人｜意圖：提升危險感
 - Blocking：巨蛇抬頭噴毒霧，鏡頭貼近蛇口。
+- Continuity：維持蓮右蛇左的軸線，鏡頭從蓮右後弧線貼近蛇頭但不跨線；仍屬 Act I 24–35mm 群組；Boss Stage 1、Ren 蓄壓條保持 1–2 格微光。
 - Angle A — 蛇頭特寫魚眼
-  - Camera：20mm 近距魚眼推近，快門角 200 強化動感；對焦在牙尖，呼吸拉焦到毒霧前緣。
+  - Camera：24mm 近距廣角帶輕微桶狀畸變，快門角 200 強化動感；對焦在牙尖，呼吸拉焦到毒霧前緣。
   - Lighting：陽光直射蛇鱗反白，高反差；毒霧邊緣逆光半透明。
   - Materials & Physics：毒霧流體阻尼 0.35，粒子半徑 0.6mm；牙齒濕潤粗糙 0.22 但不出血；石甲法線深度 1.0。
   - Emotion & Performance：蛇瞳收縮、張嘴發出威脅；背景略變形增壓迫。
@@ -289,6 +300,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 04（3.6–4.8s）｜穩步蓄壓起步｜意圖：建立節奏、啟動蓄力
 - Blocking：蓮向前踏步，戰槌於身側，腳下輔助圓線閃現。
+- Continuity：延續 Axis Lock（蓮右蛇左）、主光右上 45°、Act II 鏡頭 35–50mm 群組；Boss 仍 Stage 1，Ren 蓄壓條提升到 30%、步伐與鼓點同步。
 - Angle A — 側面追蹤中景
   - Camera：35mm 側移滑軌，身體保持中景，快門角 180；對焦層次從腳步到戰槌。
   - Lighting：側逆光 5600K，高對比；地面反光填充 0.2；熱浪折射讓邊線微漂移。
@@ -298,6 +310,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 05（4.8–6.0s）｜蓄壓槽點亮｜意圖：凸顯充能視覺
 - Blocking：戰槌拉上肩，手臂與戰甲黑線逐格亮黃。
+- Continuity：延續 Beat 04 軸線與光位，鏡頭上推但不跨線，保持 Act II 35–50mm 群組；Boss Stage 2 尚未開啟、Ren 蓄壓條升至 70% 閃動。
 - Angle A — 上半身仰角特寫
   - Camera：50mm 仰角，穩定器微推，快門角 172；對焦在前臂紋路並呼吸拉到眼睛。
   - Lighting：背光邊緣 5700K，背景壓暗；肩線和槌頭邊緣有金黃 rim。
@@ -307,6 +320,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 06（6.0–7.2s）｜第一組・穩定起槌｜意圖：展示打擊節奏與衝擊波
 - Blocking：橫向砸地，衝擊波擴散震開巨蛇。
+- Continuity：沿同軸線往前半步，保持 Act II 焦段群組；Boss 進入 Stage 2（局部裂痕），Ren 蓄壓條從 70% 消耗一部分但保持亮度脈動。
 - Angle A — 斜 3/4 中景
   - Camera：35mm 斜前方，快門角 190 增加殘影，穩定器弧形跟；對焦在槌頭落點，衝擊後拉到碎片。
   - Lighting：側逆硬光，衝擊瞬間塵埃體積散射；色溫 5600K。
@@ -316,6 +330,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 07（7.2–8.4s）｜第二組・深度壓縮｜意圖：升級力量、加速度
 - Blocking：旋身斜砸巨蛇身軀，裂紋蔓延。
+- Continuity：保持蓮右蛇左軸線，鏡頭近距旋繞但不跨線，依舊使用 35–50mm 群組；Boss Stage 2 裂紋擴散，Ren 蓄壓條回填到 80% 後再次消耗。
 - Angle A — 近景跟拍
   - Camera：50mm 近景，穩定器繞身，快門角 200；對焦在槌頭擊點，2-frame 閃白後回復。
   - Lighting：強硬日光＋反光板 0.15 補臉；衝擊時高對比閃白。
@@ -328,6 +343,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 08（8.4–9.6s）｜舊傷警示｜意圖：增加張力、短暫停頓
 - Blocking：蓮微蹲按護膝，護具紅黃閃一下。
+- Continuity：維持軸線與光位，鏡頭收束到 Act III 50–75mm 群組；Boss 進入 Stage 3（裂紋發光待崩解），Ren 護膝警示首度亮起、蓄壓條回升至 80%。
 - Angle A — 膝蓋與腰部中近景
   - Camera：75mm 近景，穩定器定機，快門角 180；對焦在護膝警示光後拉回臉部一瞥。
   - Lighting：側光 5600K，膝蓋金黃反光；背景略降曝光。
@@ -337,6 +353,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 09（9.6–10.8s）｜最終組前的決心｜意圖：情緒提拉、滿格展示
 - Blocking：抬頭微笑，雙手握槌，戰紋全亮。
+- Continuity：延續 Beat 08 軸線與光位，鏡頭微推但保持 50–75mm 群組；Boss 仍 Stage 3 裂紋發光，Ren 蓄壓條滿格閃爍、護膝第二次短暫警示。
 - Angle A — 胸像正面略仰
   - Camera：50mm 仰角，穩定器微推，快門角 180；對焦在眼神，背景過曝成白邊光。
   - Lighting：背光白金 rim，前方補光 0.2；高對比強調肌理。
@@ -346,8 +363,9 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 10（10.8–12.0s）｜慢動作蓄力・總結重擊起手｜意圖：鋪陳終結槌
 - Blocking：巨蛇撲下，蓮跨步旋身，槌軌畫光弧；進慢動作 0.5x。
-- Angle A — 環繞慢動作廣角
-  - Camera：28mm 環繞弧形滑軌，快門角 200 強化殘影；對焦在槌頭沿光弧移動，景深拉長。
+- Continuity：延續 Beat 09 的軸線與光位，鏡頭收縮到 Act III 50–75mm 群組並環繞蓮右後；Boss Stage 3 裂紋發光，Ren 蓄壓條保持滿格閃爍、護膝未再警示。
+ - Angle A — 環繞慢動作中景
+  - Camera：55mm 弧形滑軌環繞，快門角 200 強化殘影；對焦在槌頭沿光弧移動，景深拉長；保持蓮右蛇左視覺方向不翻轉。
   - Lighting：陽光勾勒光弧邊緣，地面反光補充；體積塵埃在慢動作中漂浮。
   - Materials & Physics：光弧以黑黃雙層，粒子大小 1–2 mm，沿軌跡受慣性延遲；衣甲布料微動受風阻；熱浪折射 index 1.05 造成背景扭曲。
   - Emotion & Performance：肌肉線條張力被放大，表情專注。
@@ -355,6 +373,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 11（12.0–13.2s）｜漫畫格衝擊・擊殺瞬間｜意圖：高潮擊殺
 - Blocking：槌頭砸中蛇頭，畫面切成漫畫格，速度線填滿背景；擬聲字「ドゴォン」。
+- Continuity：保持軸線（蓮右蛇左）並延續 Act III 50–75mm 群組；Boss Stage 3 在此崩解，Ren 蓄壓條瞬間清零、護膝警示後熄滅；光位雖轉漫畫格但陰影方向一致。
 - Angle A — 漫畫格特寫
   - Camera：75mm 壓縮特寫，畫面外框粗黑；快門角 200；對焦在槌頭與蛇頭交會點，背景速度線模糊。
   - Lighting：衝擊點爆出白金強光 1.15 倍，周圍黑白速度線；體積塵煙被光穿透形成射線。
@@ -364,8 +383,9 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 
 #### Beat 12（13.2–15.0s）｜塵埃落定・訓練結束｜意圖：收束情緒、Brand Line
 - Blocking：巨蛇倒地，蓮扶槌站直，吐氣，護膝微閃；0.5s 切胸像說收尾台詞再淡出。
+- Continuity：維持 Axis Lock、主光方向與 Act III 焦段群組 50–75mm；Boss Stage 3 崩解後碎片落地，Ren 蓄壓條清零、護膝僅留餘光閃爍。
 - Angle A — 中遠景拉遠後切胸像
-  - Camera：35mm 中遠景推拉，快門角 180；對焦先在倒地巨蛇再拉到蓮；最後胸像用 50mm。
+  - Camera：55mm 中景推拉，快門角 180；對焦先在倒地巨蛇再拉到蓮；最後胸像保持 55mm 以維持焦段連續性。
   - Lighting：陽光穿雲形成光束，塵埃漂浮；光束溫度 5600K；背光 rim 勾勒蓮肩線。
   - Materials & Physics：碎片散落粗糙 0.8，塵埃粒子 0.3mm 慢速下沉；護膝黃光間歇閃爍 0.6Hz；戰槌重心微晃受慣性回彈。
   - Emotion & Performance：吐氣放鬆，嘴角微揚；胸像時口型可配「好了，訓練到這裡」。
@@ -391,7 +411,7 @@ Master(15s｜2D 日系動漫＋黑黃漫畫格｜9:16｜24fps｜高對比熱浪�
 - 結構：已含 Master Prompt、Act/Beat/Angle（12 幕×1.2s）、時間軸標註、Technical Specs、Platform Layer、Negative Instructions。
 - Physics & PBR：每幕明記重力、慣性、粗糙度/金屬度/法線與光學行為，熱浪折射、粒子尺寸、衝擊速度均寫明。
 - Stylepacks：完整內嵌 `_core` 及 Light Glyph Anime，新增 Hammered Noon Manga Burst 並標註適用/衝突/Default；未混用禁用風格。
-- Continuity：Brand layer 定義人物與武器狀態；Changelog 設定 baseline；Persistent Elements 指定蓄力條與護膝警示。
+- Continuity：新增 Continuity Layer（軸線、光源、焦段曲線）、Boss/Ren 狀態時間線；各 Beat 以「延續」語氣標註 Stage 與焦段群組；Changelog 保持 baseline，Hook B 改為獨立 hook_cut_prompt。
 - 風險揭露：假設蛇體型與無旁白台詞已列於 Assumptions；若需改變需人工確認。
 - QA checklist：已內嵌，可供逐項勾選。
 

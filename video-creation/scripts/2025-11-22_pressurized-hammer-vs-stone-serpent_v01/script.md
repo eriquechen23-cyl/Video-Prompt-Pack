@@ -12,6 +12,15 @@
 
 正午岩地的廢棄神殿前，蓄壓重槌師朝倉蓮以穩定步伐與黑黃蓄力紋點亮全身，在毒霧與烈日中用最後一槌漫畫格擊倒覆滿石甲的巨蛇。
 
+## Continuity Layer Snapshot
+
+- Axis & Camera Arc: 蓮固定在畫面右側、巨蛇偏左；鏡頭多站在蓮右後 120° 弧線移動，不跨軸。
+- Lens Curve: Act I 24–35mm 建立環境；Act II 35–50mm 節奏中景；Act III 50–75mm 聚焦蓄力與漫畫格，避免 3 秒內跳焦。
+- Light Lock: 正午太陽固定右上 45°，硬邊光；漫畫格時允許速度線黑白化，但收回同光位。
+- Boss Stage Timeline: Stage 1（0–4s）石甲完整；Stage 2（4–8s）第一槌裂、第二槌大裂紋；Stage 3（8–15s）裂紋發光→擊殺崩碎。
+- Ren State Timeline: 蓄壓條 0–4s 微光、4–8s 至 70% 並隨槌消耗、8–12s 滿格閃爍後清零；護膝 6–9s 警示一次、9–15s 收尾餘光。
+- Hook Policy: Baseline 保持線性；Hook B 另寫 `hook_cut_prompt` 抽取 Beat 11 漫畫格 0.8s 再倒帶，不與 baseline 混寫。
+
 ## Act & Beat Outline
 
 ### Act I — 正午對峙（0.0–3.6s）
