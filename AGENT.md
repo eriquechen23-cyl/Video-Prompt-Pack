@@ -69,6 +69,24 @@
 - 必備 `## Negative Instructions`：列出禁用內容（真實商標/名人/宗教政治符號等）、避免的畫面風格（過曝、廉價濾鏡、過度晃動/魚眼）、畫面尺度限制（PG-13 等）。
 - 在 `_core` 加入品牌層：品牌角色共同特徵、場景色調與光感、文案語氣（中日英混用節奏），作為全系列 Brand Bible。
 
+## SORA 編譯與交付流程
+- 產出 `prompt.md` 後，必須再執行一次「SORA PROMPT COMPILER」，將完整稿壓縮成短版 `sora.md`（實際為 JSON），以便直接餵入 SORA。
+- `sora.md` JSON 必備欄位：
+  - `meta`：project_name、series_name、episode_index、slug、duration_sec（預設 15）、shots_count（預設 12）、aspect_ratio、fps。
+  - `style`：`primary`、`secondary` 兩句英文概述，從 `_stylepacks` 精選 1–2 個風格摘要，不可直接複製全文。
+  - `global_prompt`：3–4 句英文，描述場景位置/時間、主角外觀、整體情緒與運鏡/光感。
+  - `negative_prompt`：一句英文逗號分隔的禁用項（logo、文字、品牌、政治宗教符號、血腥尺度、低品質濾鏡等）。
+  - `shots`：依 Act/Beat/Angle 映射為 12 幕（約 1.2s/shot），每個 `id` 為 `S01…S12`，包含 `time.start/end`、`prompt`（3–5 句英文整合景框/光線/材質/情緒/聲音）、可選 `camera`/`motion`/`audio` 短句。
+- 轉譯規則：
+  - 僅保留渲染所需資訊：專案與風格基本資料、Master Prompt 的 worldstate、Act/Beat/Angle 的鏡頭內容、Negative Instructions 的核心禁用項。
+  - 禁止將 `_core`/`_stylepacks` 全文、PBR 或模擬參數表、Platform Layer、Self-Check、Changelog、Next Episode 等人類審核文字帶入 `sora.md`。
+  - 時間切分以 `duration_sec ÷ shots_count` 平均換算；若時長或幕數不同，需同步調整 `time.start/end`。
+  - 所有輸出必須為 100% 英文且為有效 JSON，無額外說明文字或程式碼區塊包裝。
+- 建議 Compiler 指令（可直接丟給 GPT/Claude）：
+  - 宣告「You are a SORA PROMPT COMPILER」並提供上述 JSON schema。
+  - 指示只抽取必要資訊並套用 3–5 句精煉英文描述，整合相機/光影/材質/情緒/聲音。
+  - 要求輸出僅為最終 JSON，禁止附註解或附加說明。
+
 ## 連續劇集製作指引
 
 ### 定義連載骨架與狀態機
