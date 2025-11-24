@@ -1,0 +1,420 @@
+## Project Inputs
+- project_name: 飛刃爆紋・鋼川烈
+- series_name/arc: 鋼脈都市・夜間影域篇
+- episode_index: 3
+- slug: crimson-card-ice-siege
+- target_platform: TikTok / Shorts / Reels 直式 9:16
+- duration_sec: 15 (12 幕 × 1.2s)
+- style_primary: 紅牌爆紋術士 vs 冰獄群魔・2D 動漫
+- style_secondary: 冰藍霧氣 + 漫畫化連鎖爆裂
+- worldstate_ref: 鋼脈都市廢棄高架月台被冰霜包覆，冰霧中湧出冰與黑霧混成的巨獸與拼接人形怪
+- goal: 製作 15 秒 2D 動漫短片，鋼川烈以紅牌爆紋術對抗冰獄群魔，展現連鎖爆炸與漫畫化高潮，保持日語台詞、擬聲字與 2D 層次。
+
+## _core (Brand Bible & Worldstate)
+- Brand Traits:
+  - 主角鋼川烈：黑色貼身機能戰鬥上衣 (尼龍/氨綸混紡，粗糙度 0.35，金屬度 0.06)，沿鎖骨、手臂有紅色能量線條 (albedo #b51224，emissive 1100–1800 nits，脈衝頻率 8Hz)；胸肌、肩膀肌理以 2D cel shading 2 階陰影表現，描邊 1.0–1.2px 隨景深變化。
+  - 爆紋紅牌：高密度複合材質卡牌，邊緣金屬度 0.7 粗糙度 0.2，表面刻紋 emissive 1400 nits；懸浮時形成 0.4m 半徑陣列，磁鎖頻率 18kHz；每張卡牌背面印有黑色防滑點 (法線 0.15mm)。
+  - 口頭禪：出場前低語「氷なんかに、この街は渡さない。」；起爆前低聲「――全部、まとめて終わらせる。」；收尾吐息「まだ凍らせ足りねぇか？」
+  - 動作習慣：起手抬右臂時紅牌沿前臂排開；腰部發力帶動肩胛骨後收 10°；連射前腳掌微屈形成 0.2s 蓄力；爆裂後微張手指讓灰燼飄散。
+  - 道具狀態：紅牌邊緣細刮痕 0.1mm，爆紋發光時邊緣產生 0.2mm 熱氣震動；護腕磁鎖收卡音 1.1kHz，釋放音 7.8kHz；卡牌重量 120g，投射速度 14–20 m/s。
+  - 場景色調：廢棄月台被冰層覆蓋 (冰面 albedo #8fc7ff，粗糙度 0.12)，鋼梁與廣告牌覆蓋霜花 (法線 0.4mm)；冰霧偏藍 (#6bd2ff)，底光為凍結列車燈管 5200K，遠處霓虹殘光 610nm 淡紅。
+- Worldstate Snapshot (前一集延續):
+  - 場景：鋼脈都市地鐵高架月台，周圍交通封鎖；上一集巷戰後烈順著高架追蹤冰霧源頭，現在時間 00:35，氣溫 -6°C，風速 1.1 m/s，冰晶顆粒 0.2–0.5mm 在空中飄浮。
+  - 敵方：冰獄群魔 10–14 頭，組成材料為冰晶+黑霧；四足巨獸肩高 1.8m，關節金屬度 0.25 粗糙度 0.65，胸口核心藍光 900 nits；人形拼接怪身高 1.6m，關節以冰塊拼接 (折射率 1.31) 有裂縫；攻擊手段為冰矛投射 (初速 12 m/s)、寒氣光束 (色溫 7000K) 與撞擊。
+  - 鏡頭延續：上一集收尾停在烈收刀後抬頭警戒（35mm 拉遠），本集開場同軸前推 1m，保持 35mm，高度 1.4m，延續 180 度軸線。
+- Constraints (不可變更):
+  - 角色爆紋顏色維持黑紅；紅牌數量最多 30 張，可懸浮但需 2D cel shading 描邊；卡牌爆炸不可產生血腥碎肉，敵方僅化為冰片與黑霧。
+  - 場景須保持 9:16 直式構圖，避免 360° 繞拍；景深控制主體清晰，背景冰霧僅輕度散焦。
+  - 2D 漫畫化高峰不可省略，爆炸時需疊加漫畫分格、網點 0.9px、速度線 24 條/秒；PBR 細節需與 2D 質感共存。
+- Brand Do / Don't:
+  - Do：使用冷暖對比光 5200K/6500K；在爆紋與卡牌尾跡加入 0.8px 速度線；對比度 1.85 gamma curve；字幕與擬聲字使用紅白描邊。
+  - Don't：避免全屏霧牆遮蔽角色；避免過度體積光導致寫實；禁止魚眼或 0.5x 極廣扭曲；避免真實血腥元素。
+
+## _stylepacks
+- Style: Crimson Sigil Burst (Default ON)
+  - Applicable for: 紅牌爆紋投射、連鎖爆炸、漫畫化高潮。
+  - Do NOT mix with: 童話粉彩、柔焦慢舞、寫實血腥 gore。
+  - Visual traits: 1.2px 黑描邊，紅色爆紋 emissive 1500–2000 nits；卡牌尾跡粒子 0.4–0.8mm，透明度 70%；漫畫分格網點厚度 0.9px，速度線 24 條/秒；2D / 3D Layering 預設：角色_base=2D、卡牌=2D 線稿+輔助 3D 參考、爆煙=3D 粒子 toon 化、冰晶碎片=3D 粒子回收上疊 2D 漫畫線條。
+  - Audio traits: 卡牌破風音 8–9kHz，爆炸低頻 55–70Hz，日語低沉配音；擬聲字「ドン」「バキ」帶紙張摩擦音 620Hz。
+  - Default ON: 紅黑殘影、爆紋光暈、漫畫分格；Default OFF: 全屏 bloom。
+  - Do / Don't：Do 控制鏡頭在 24–50mm；Do 保持 180° 軸；Don't 讓體積光超過 0.12 密度；Don't 讓冰晶折射過度寫實。
+- Style: Frosted Rail Nocturne (Support ON)
+  - Applicable for: 冰霧月台、冰晶裂紋、鐵軌金屬霜。
+  - Do NOT mix with: 熱浪陽光、霓虹派對、暖色童話。
+  - Visual traits: 冰面粗糙度 0.12，折射率 1.31，反射高光帶 0.3px 色差；霧密度 0.08 漸層，散射偏藍 (#6bd2ff)；鋼梁金屬度 0.6 粗糙度 0.35，霜花晶粒 0.15mm；2D / 3D Layering：角色_base=2D，冰霧=3D VDB toon 化，鋼梁=3D 參考+2D 描邊回收，字幕與擬聲字=2D 上層。
+  - Audio traits: 冰裂聲 1.5kHz，寒風 280Hz，遠處封鎖警笛 1kHz；混響 1.2s，低頻削減 120Hz。
+  - Default ON: 冰晶裂紋高光、霧中 rim 光；Default OFF: 過曝冷光或全景深霧牆。
+  - Do / Don't：Do 控制冰面反射不蓋過角色；Do 提供冷 rim 光 6800K；Don't 使用魚眼或高頻閃爍；Don't 讓霧密度遮住面部表情。
+
+## Technical Specs
+- Aspect Ratio: 9:16 直式；解析度 1080x1920。
+- FPS: 24fps；Shutter: 180° (1/48s)；Motion Blur 以 2D cel shading 對應動態模糊，尾跡限制 0.12s。
+- Lens kit: 24mm (廣角環境)、35mm (主視角)、50mm (中景焦)、75mm (特寫壓縮)。
+- Depth of Field: 主體景深 0.6–0.9m；背景冰霧輕度散焦，避免過淺景深；bokeh 簡化為六邊形 2D 模式，避免寫實散景。
+- Grain & Color: Filmic LUT，對比度 1.85 gamma curve，飽和度 -6%，微顆粒 10%；色彩流程：line art → flat color → cel shade + SSS 0.05–0.1 → FX pass (爆紋/冰霧/速度線) → LUT → 壓縮。
+- Light: 主光 5200K 冷白由凍結列車燈管提供，輔光 6500K 冷 rim 描輪廓，紅色爆紋為 620nm 自發光；AO 0.5，體積霧 0.08。
+- Simulation notes: 冰霧粒徑 0.2–0.5mm，VDB 求解，粒子上限 42k；爆炸煙霧粒徑 0.4–0.9mm，透明度 60–80%，toon light；冰碎片 3D 粒子 1–3cm，碰撞摩擦係數 0.35，彈性 0.15；紅牌飛行角速度 14–18 rps。
+- Compression strategy: 上傳前 GOP 24、bitrate 20Mbps，預加 dither 5% 防 banding；字幕與擬聲字留 24px 安全框。
+
+## Master Prompt
+- Duration: 15s，分為 12 幕，每幕約 1.2s，時間軸標註。
+- Scene Overview: 廢棄高架月台被厚冰封住，鋼梁、列車殘骸、廣告牌覆蓋霜花；冰藍霧光吞沒夜色。鋼川烈踏上冰層，紅牌在手臂與指尖懸浮；冰獄群魔在月台中央扭動，胸口藍光跳動，呼出白霧。
+- Camera Continuity: 延續上一集 35mm 拉遠後的軸線，開場 35mm 向前推 1m，高度 1.4m；中段保持 35mm/50mm 切換但不跨 180 度軸；高潮漫畫分格保留前後視線一致。
+- Constraints & Execution Notes:
+  - 全片維持 2D 日系質感，角色與卡牌以 2D 線稿+cel shading，冰霧與爆煙可用 3D VDB toon 化，需在各 Angle 標註 2D / 3D Layering。
+  - 時間軸 T0–15s 清楚標示，每個 Angle 加入重力/慣性數值與 PBR 參數；運鏡以平移/推拉為主，無 360° 繞拍。
+  - 高潮 (Act 3 Beat C) 必須漫畫化：彩色分格、粗描邊 1.2px、網點 0.9px、速度線 24–28 條/秒，擬聲字「ドン」「バキ」同步爆炸；並標註光學折射、散射、熱波扭曲。
+  - Negative Instructions 依專區；PG-13，無血腥；禁止真實品牌或政治符號。
+
+## Acts / Beats / Angles
+
+## Act 1 (T0–4.8s): 冰封月台導入
+- Beat A (T0–1.2s): 鏡頭推入烈與冰霧對峙
+  - Angle 1:
+    - Camera: 35mm 腰平，向前推 1m，鏡頭高度 1.4m，平移遵守 180 度軸；
+    - Lighting: 主光 5200K 冷白從左上，輔光 6500K rim 從右後方，冰霧散射偏藍；
+    - Materials & Physics: 地面冰層厚度 2cm，粗糙度 0.12；爆紋初亮 800 nits → 1200 nits，肌肉在 cel shading 下隆起 2mm；2D / 3D Layering：角色_base=2D，冰霧=3D VDB toon，鋼梁=3D 參考+2D 描邊回收，字幕與擬聲=2D 上層；
+    - Emotion & Performance: 烈低語「氷なんかに、この街は渡さない。」肩膀繃緊，呼氣形成白霧；微動作：手指彈起 0.2s 帶動紅牌震動；
+    - Audio & Transition: 寒風 280Hz，爆紋低頻脈衝 60Hz，腳步踩冰裂聲 1.4kHz；硬切進下一角度。
+  - Angle 2:
+    - Camera: 50mm 特寫右前臂與懸浮紅牌，微俯視 10°，鏡頭推近 0.4m；
+    - Lighting: 冷 rim 6800K 在卡牌邊緣形成細高光，紅光反射在冰面；
+    - Materials & Physics: 卡牌金屬邊緣金屬度 0.7，粗糙度 0.2；卡面刻紋 emissive 1400 nits，磁鎖頻率 18kHz 形成 0.3mm 振幅；2D / 3D Layering：卡牌=2D 線稿+3D base 參考，冰霧=3D toon，背景廣告牌=3D 投影+2D 描邊；
+    - Emotion & Performance: 烈抬腕，紅牌整齊排成弧；眼神反射冰藍光點；
+    - Audio & Transition: 卡牌震鳴 7.8kHz，指節發力摩擦聲 2kHz；蒸汽 wipe 轉場。
+  - Angle 3:
+    - Camera: 24mm 俯視 15°，看到烈腳下鐵軌裂縫，輕微手持搖 1°；
+    - Lighting: 地面反射冷光，冰晶折射形成細碎藍光斑；
+    - Materials & Physics: 鐵軌金屬度 0.6 粗糙度 0.35，覆冰厚度 1cm，裂縫內黑霧緩慢升起速度 0.3 m/s；2D / 3D Layering：鐵軌=3D 參考+2D 描邊，冰霧=3D VDB，角色腳部=2D；
+    - Emotion & Performance: 烈踏實步伐，腳跟壓碎薄冰，碎片半徑 10cm；
+    - Audio & Transition: 冰裂「パキ」擬聲，加入紙張摩擦音 620Hz；硬切至下一 Beat。
+- Beat B (T1.2–2.4s): 冰獄群魔現形
+  - Angle 1:
+    - Camera: 24mm 低角 25cm 離地，仰視冰巨獸踏入畫面，鏡頭微向右平移 0.5m；
+    - Lighting: 冰巨獸胸口藍光 900 nits 為局部主光，地面反射冷光；
+    - Materials & Physics: 冰晶表面折射率 1.31，裂縫邊緣法線 0.5mm；冰霧密度 0.08 將遠景柔化；2D / 3D Layering：怪物外形=2D 描邊+3D 參考，冰霧=3D VDB，冰碎片=3D 粒子，上疊 2D 速度線；
+    - Emotion & Performance: 冰巨獸四足撐地，冰刺倒刺豎起，黑霧在關節流動；
+    - Audio & Transition: 低頻咆哮 70Hz，冰裂摩擦 1.5kHz，transition 硬切。
+  - Angle 2:
+    - Camera: 35mm 平視，右→左平移 0.6m 掃過人形冰怪群，保持 1.2m 高度；
+    - Lighting: 霓虹殘光 610nm 映在冰面，rim 6500K 描邊；
+    - Materials & Physics: 冰矛在怪手中成形，初速蓄力 0.3s；冰面粗糙度 0.16 形成細碎反射；2D / 3D Layering：角色=2D，冰矛=3D 參考+2D overlay，背景鋼梁=3D 投影+2D 描邊，霧=3D VDB；
+    - Emotion & Performance: 冰怪扭動身軀，胸口藍光閃爍頻率 6Hz；
+    - Audio & Transition: 冰矛凝結音 2.2kHz，黑霧低鳴 90Hz；蒸汽 wipe。
+  - Angle 3:
+    - Camera: 50mm 特寫烈的側臉與倒映的冰怪，微推 0.3m；
+    - Lighting: 冷 rim 燈在臉頰形成 1.2px 高光，爆紋反光在瞳孔；
+    - Materials & Physics: 肌膚 SSS 0.08，汗珠 0.4mm 反射；呼氣白霧粒徑 0.2mm；2D / 3D Layering：臉部=2D，眼中倒影=2D 繪製，背景霧=3D；
+    - Emotion & Performance: 烈瞳孔收縮，嘴角緊繃，微抬下巴；
+    - Audio & Transition: 心跳低頻 70Hz 疊加；硬切下一 Beat。
+- Beat C (T2.4–3.6s): 第一張紅牌爆裂
+  - Angle 1:
+    - Camera: 35mm 側向跟拍，平移 1m，鏡頭與烈同步滑步；
+    - Lighting: 爆紋迅速升至 1500 nits，紅光與冰面反射形成對比；
+    - Materials & Physics: 卡牌拋射仰角 18°，初速 18 m/s，受重力 9.8 m/s²；冰面摩擦係數 0.35 促使烈滑步；2D / 3D Layering：角色與卡牌=2D，尾跡=3D 粒子 toon，冰碎片=3D 粒子，上疊 2D 描線；
+    - Emotion & Performance: 烈彈出第一張紅牌，手腕甩動，紅光沿筋脈奔流；
+    - Audio & Transition: 卡牌破風 8.5kHz，字幕擬聲「ギン」；硬切。
+  - Angle 2:
+    - Camera: 75mm 特寫卡牌插入冰地面，輕微搖晃 1°；
+    - Lighting: 卡牌邊緣 emissive 1600 nits，冰裂紋反射紅光；
+    - Materials & Physics: 卡牌入冰深度 3cm，引發放射裂紋半徑 0.8m，冰晶碎片厚 2–4mm；2D / 3D Layering：卡牌=2D，裂紋=3D 參考+2D 描線，冰塵=3D 粒子，漫畫速度線=2D 最上層；
+    - Emotion & Performance: 冰怪停頓 0.2s 被光吸引；
+    - Audio & Transition: 金屬刺入 2kHz，冰裂「パキ」；蒸汽 wipe。
+  - Angle 3:
+    - Camera: 50mm 中景回到烈，輕推 0.4m；
+    - Lighting: 爆紋閃至 1700 nits，rim 光勾勒肌理；
+    - Materials & Physics: 爆炸衝擊波半徑 1.5m，速度 7 m/s，熱波使冰霧折射 0.6% 扭曲；2D / 3D Layering：角色=2D，衝擊波=3D 粒子 toon，上疊 2D 網點，冰怪=2D；
+    - Emotion & Performance: 烈低吼，肩膀前送；冰怪被掀起碎片；
+    - Audio & Transition: 爆炸低頻 60Hz，「ドン」字幕彈出；硬切 Act 2。
+
+## Act 2 (T4.8–9.6s): 連射與冰矛交鋒
+- Beat A (T3.6–4.8s): 冰矛襲來，烈滑步躲避
+  - Angle 1:
+    - Camera: 35mm 腰平，右→左平移 0.9m，保持 180 度軸；
+    - Lighting: 冰矛寒光 7000K 形成逆光，爆紋反射紅光；
+    - Materials & Physics: 冰矛初速 12 m/s，拖尾冷霧透明度 70%；烈滑步摩擦係數 0.35，動能 2D 速度線強調；2D / 3D Layering：角色=2D，冰矛=3D 參考+2D 描邊，冷霧=3D VDB toon，速度線=2D；
+    - Emotion & Performance: 烈俯身 12°，腳尖點地滑行，右臂擋在胸前；
+    - Audio & Transition: 冰矛破空 7kHz，鞋底摩冰聲 1.6kHz；硬切。
+  - Angle 2:
+    - Camera: 24mm 側俯視 20°，展示冰矛擦地過去；
+    - Lighting: 冰矛帶出藍光拖尾，地面反射淡紅光；
+    - Materials & Physics: 冰矛刮過地面，火花粒子 0.5mm 但以 toon 光表現，摩擦係數 0.3；2D / 3D Layering：地面=3D 投影+2D 描邊，火花=3D 粒子 toon，角色=2D；
+    - Emotion & Performance: 烈腰部扭轉，左腿伸展保持平衡；
+    - Audio & Transition: 冰矛摩擦 2kHz，字幕「キィッ」；切至下一角度。
+  - Angle 3:
+    - Camera: 50mm 特寫烈的手掌拍擊冰矛尾端，微推 0.2m；
+    - Lighting: 冷 rim 6500K 勾邊，爆紋沿手掌瞬亮 1800 nits；
+    - Materials & Physics: 手掌接觸摩擦係數 0.45，冰矛碎裂成 3–5cm 碎片，慣性 3 m/s；2D / 3D Layering：手掌=2D，碎片=3D 粒子 toon，霧=3D，速度線=2D；
+    - Emotion & Performance: 烈冷瞪，低語「遅い」；
+    - Audio & Transition: 破碎音 1.4kHz，低頻轟鳴 70Hz；硬切。
+- Beat B (T4.8–6.0s): 多枚紅牌標記冰怪
+  - Angle 1:
+    - Camera: 35mm 側平移 1m，跟隨烈旋身；
+    - Lighting: 爆紋與紅牌同步閃 1500→1800 nits；
+    - Materials & Physics: 連續投射 8 張卡牌，每張初速 16 m/s，拋物線仰角 15–20°，磁鎖間距 0.6m；2D / 3D Layering：卡牌=2D，尾跡=3D 粒子 toon，冰怪=2D，背景霧=3D；
+    - Emotion & Performance: 烈旋身，手腕甩出卡牌如子彈；
+    - Audio & Transition: 卡牌連射「ギン」節奏 8kHz，低頻鼓點 80Hz；蒸汽 wipe。
+  - Angle 2:
+    - Camera: 24mm 仰角 15°，看到卡牌形成弧線穿過鋼梁縫隙；
+    - Lighting: 冰反射藍光，紅牌尾跡形成紅弧；
+    - Materials & Physics: 卡牌軌跡在空中形成 0.4cm 厚光線，透明度 70%；冰霧折射 0.5% 使軌跡微扭曲；2D / 3D Layering：軌跡=3D 粒子 toon，鋼梁=3D 參考+2D，角色=2D；
+    - Emotion & Performance: 冰怪抬頭，眼光閃爍 6Hz；
+    - Audio & Transition: 風切聲 9kHz，字幕「シュッ」；硬切。
+  - Angle 3:
+    - Camera: 50mm 中景，追焦第一張落在冰巨獸胸口；
+    - Lighting: 藍光核心被紅光覆蓋，rim 光勾出裂紋；
+    - Materials & Physics: 卡牌貼合胸口核心，吸附力 30N，爆紋沿冰面擴散 0.5m 半徑；2D / 3D Layering：胸口=2D，卡牌=2D，擴散能量=3D 粒子 toon 疊 2D 網點，冰霧=3D；
+    - Emotion & Performance: 冰巨獸怒吼，後撤 0.3m；
+    - Audio & Transition: 核心嗡鳴 120Hz，擬聲「ゴゴゴ」；切至下一 Beat。
+- Beat C (T6.0–7.2s): 近身反擊與紅牌彈射
+  - Angle 1:
+    - Camera: 35mm 手持，平移 0.7m，保持視線高度 1.3m；
+    - Lighting: 冷 rim + 紅光交錯，冰塵反射；
+    - Materials & Physics: 烈以前臂格擋冰怪爪擊，碰撞彈性 0.12；反擊拳擊速度 6 m/s，衝擊使冰塊碎成 1–2cm；2D / 3D Layering：角色=2D，冰碎=3D 粒子 toon，速度線=2D，霧=3D；
+    - Emotion & Performance: 烈低吼，肩胛收緊，拳頭穿過黑霧胸腔；
+    - Audio & Transition: 拳擊低頻 90Hz，「ドス」擬聲；硬切。
+  - Angle 2:
+    - Camera: 75mm 特寫烈手指彈射卡牌至關節；
+    - Lighting: 紅光聚焦指尖 1800 nits，冰關節反射藍光；
+    - Materials & Physics: 卡牌彈射距離 1m，角速度 16 rps，擊中關節後震波 2cm 位移；2D / 3D Layering：卡牌=2D，震波=3D 粒子 toon，冰關節=2D+3D 參考，速度線=2D；
+    - Emotion & Performance: 烈眼神冷冽，短促吐氣；
+    - Audio & Transition: 彈射音 8kHz，冰裂「パキ」；蒸汽 wipe。
+  - Angle 3:
+    - Camera: 24mm 俯視 18°，展示冰怪膝蓋被炸裂，碎冰飛散；
+    - Lighting: 爆紋光照亮碎冰，rim 光 6500K；
+    - Materials & Physics: 爆炸半徑 0.9m，碎片慣性 4 m/s，冰片與黑霧混合透明度 65%；2D / 3D Layering：碎片=3D 粒子 toon，上疊 2D 描邊，黑霧=3D，角色=2D；
+    - Emotion & Performance: 冰怪跪地，烈轉身準備終結；
+    - Audio & Transition: 爆裂「ドン」，低頻 60Hz；硬切 Act 3。
+
+## Act 3 (T9.6–12.0s): 漫畫化包圍與終結佈局
+- Beat A (T7.2–8.4s): 圍攻開始，烈蓄勢
+  - Angle 1:
+    - Camera: 35mm 中景，左→右平移 0.6m，保持 1.3m 高度；
+    - Lighting: 冷 rim 6500K 勾邊，紅光在霧中形成 halo；
+    - Materials & Physics: 冰怪合圍，黑霧密度 0.09，冰塊摩擦係數 0.33；爆紋亮度保持 1600 nits，心率 70 bpm 隨脈衝同步；2D / 3D Layering：角色=2D，霧=3D VDB，冰塊=3D 參考+2D 描邊，速度線=2D；
+    - Emotion & Performance: 烈深吸氣，腳步微開 0.5m，手臂抬起蓄力；
+    - Audio & Transition: 低頻鼓點 80Hz，呼吸 400Hz；硬切。
+  - Angle 2:
+    - Camera: 50mm 特寫烈眼神，輕推 0.2m；
+    - Lighting: 6500K rim 在瞳孔形成 catch light，紅光反射瞳面；
+    - Materials & Physics: 瞳孔反光呈現卡牌弧線；皮膚 SSS 0.08；汗珠 0.3mm 反射紅光；2D / 3D Layering：臉=2D，反光=2D，霧=3D；
+    - Emotion & Performance: 烈低聲「近いな……いいぜ」；眉頭緊鎖；
+    - Audio & Transition: 心跳 72 bpm，低頻嗡鳴 60Hz；蒸汽 wipe。
+  - Angle 3:
+    - Camera: 24mm 高角俯視 12°，展示冰怪圈成半徑 3m 的包圍圈；
+    - Lighting: 冰霧散射偏藍，紅光在冰面形成 0.3px 反射；
+    - Materials & Physics: 冰怪腳步壓裂冰面深 0.6cm；黑霧密度 0.09；2D / 3D Layering：怪物=2D+3D 參考，冰面=3D 投影+2D 描線，霧=3D；
+    - Emotion & Performance: 烈站中央，肌肉緊繃，手臂張開；
+    - Audio & Transition: 咆哮混響 1.1s，字幕「ゴゴゴ」；硬切。
+- Beat B (T8.4–9.6s): 漫畫化連射掃蕩
+  - Angle 1:
+    - Camera: 漫畫分格三欄，基礎 35mm 透視，固定構圖；
+    - Lighting: 對比拉高 1.9 gamma，紅光與藍霧硬邊；
+    - Materials & Physics: 網點 0.9px，描邊 1.2px；卡牌速度線 26 條/秒；冰碎片加入網點陰影；2D / 3D Layering：全部以 2D 漫畫層呈現，3D 粒子數據僅作參考；
+    - Emotion & Performance: 烈連射 6 張卡牌擊中不同冰怪，動作誇張定格；
+    - Audio & Transition: 擬聲「ドドド」佔據分格邊緣，紙張摩擦音 620Hz；硬切。
+  - Angle 2:
+    - Camera: 24mm 全景分格，展示冰怪同時被標記；
+    - Lighting: 漫畫化光影，紅光塊與藍光塊交錯；
+    - Materials & Physics: 速度線放射式，厚度 0.8px；冰怪身上貼滿紅牌，附著力 30N；2D / 3D Layering：2D 主導，冰霧+碎片以 3D 粒子參考後描線；
+    - Emotion & Performance: 冰怪驚慌，胸口核心顫抖；
+    - Audio & Transition: 擬聲「バキ」「ギン」；匹配剪接到特寫。
+  - Angle 3:
+    - Camera: 50mm 特寫烈伸開手，紅牌在身周旋轉；
+    - Lighting: 爆紋與卡牌同步閃 1800 nits，rim 光勾出手臂肌理；
+    - Materials & Physics: 卡牌陣列半徑 0.6m，旋轉 200°/s，磁鎖振幅 0.2mm；2D / 3D Layering：卡牌=2D，磁場波紋=3D 粒子 toon 疊 2D 網點，霧=3D；
+    - Emotion & Performance: 烈吐息「まとめて吹き飛べ」；
+    - Audio & Transition: 金屬顫音 6kHz，低頻蓄力 50Hz；硬切。
+- Beat C (T9.6–10.8s): 最終紅牌鎖定準備
+  - Angle 1:
+    - Camera: 35mm 拉遠 1m 顯示數十張紅牌懸空成圓；
+    - Lighting: 卡牌邊緣亮至 1900 nits，冰霧反射紅光形成環形光帶；
+    - Materials & Physics: 卡牌總數 24 張，均勻分布，旋轉 220°/s；冰面因磁場微震 0.5mm；2D / 3D Layering：卡牌=2D，磁場波紋=3D 粒子 toon，冰面=3D 參考+2D 描線，霧=3D；
+    - Emotion & Performance: 烈雙臂張開，胸口爆紋與卡牌同頻閃；
+    - Audio & Transition: 低頻脈衝 55Hz，字幕「ドゥン」；硬切。
+  - Angle 2:
+    - Camera: 24mm 仰角，鏡頭微旋 5° 配合卡牌旋轉；
+    - Lighting: 冷 rim 6500K 從下方反射，紅光在冰梁投射；
+    - Materials & Physics: 冰梁金屬度 0.6，霜花 0.15mm；卡牌尾氣形成紅色薄霧透明度 65%；2D / 3D Layering：梁=3D 參考+2D，卡牌=2D，霧=3D；
+    - Emotion & Performance: 冰怪圍繞，胸口核心同步閃，緊張；
+    - Audio & Transition: 緊張弦樂 2kHz，心跳聲 70Hz；匹配剪接。
+  - Angle 3:
+    - Camera: 50mm 特寫烈口型，嘴唇微開；
+    - Lighting: 紅光映在嘴唇，冷 rim 勾邊；
+    - Materials & Physics: 呼吸白霧 0.2mm 粒徑，向前噴 0.2m；描邊 1.2px；2D / 3D Layering：臉=2D，霧=3D；
+    - Emotion & Performance: 烈低聲「――全部、まとめて終わらせる。」；
+    - Audio & Transition: 低頻蓄力持續，字幕同步；硬切 Act 4。
+
+## Act 4 (T12.0–15.0s): 連鎖爆裂與收束
+- Beat A (T10.8–12.0s): 全域爆炸啟動
+  - Angle 1:
+    - Camera: 35mm 中景固定，視角包覆全部冰怪；
+    - Lighting: 紅牌同時點亮至 2000 nits，冰霧被紅光染色；
+    - Materials & Physics: 每張卡牌延時 0.2s 引爆，連鎖爆炸半徑 2.5m，衝擊波速度 9 m/s；熱波造成空氣折射 1% 扭曲；2D / 3D Layering：角色=2D，爆煙=3D 粒子 toon 上疊 2D 網點，碎冰=3D 粒子疊 2D 描邊，速度線=2D；
+    - Emotion & Performance: 烈站穩中心，雙臂下壓；
+    - Audio & Transition: 低頻爆震 50Hz，「ドン」巨大擬聲佔畫面；硬切。
+  - Angle 2:
+    - Camera: 24mm 高角俯視，展示爆炸波掃過月台；
+    - Lighting: 爆光在冰層形成反射帶，霧中折射；
+    - Materials & Physics: 冰層碎片直徑 1–3cm，慣性 5 m/s；黑霧被蒸散成白煙；2D / 3D Layering：碎片=3D 粒子 toon，煙=3D，角色=2D，漫畫速度線=2D；
+    - Emotion & Performance: 冰怪在爆光中崩解，肢體飛散但無血腥；
+    - Audio & Transition: 風壓聲 200Hz，碎片摩擦 2kHz；蒸汽 wipe。
+  - Angle 3:
+    - Camera: 漫畫分格特寫卡牌在怪胸口閃光後碎成灰；
+    - Lighting: 對比 1.95 gamma，網點 0.9px；
+    - Materials & Physics: 卡牌燃成光灰，粒徑 0.2mm，飄落速度 0.4 m/s；2D / 3D Layering：全 2D 漫畫化，灰塵以 3D 參考後 2D 描繪；
+    - Emotion & Performance: 冰怪表情凍結後崩散；
+    - Audio & Transition: 紙張破裂音 1kHz，「バラバラ」字幕；硬切。
+- Beat B (T12.0–13.2s): 爆光後的蒸汽與碎冰雨
+  - Angle 1:
+    - Camera: 35mm 右→左平移 0.7m，跟隨蒸汽翻騰；
+    - Lighting: 爆光餘暈 900 nits，霧中 rim 6500K；
+    - Materials & Physics: 蒸汽密度 0.06，粒徑 0.4–0.8mm，向上升速度 0.7 m/s；冰碎片掉落形成 1.2kHz 輕響；2D / 3D Layering：霧=3D VDB toon，碎片=3D 粒子+2D 描邊，角色=2D；
+    - Emotion & Performance: 烈保持姿勢，呼吸急促；
+    - Audio & Transition: 呼吸 400Hz，蒸汽聲 500Hz；硬切。
+  - Angle 2:
+    - Camera: 50mm 特寫護腕收回最後一張卡牌；
+    - Lighting: 紅光衰減到 300 nits，rim 光柔和；
+    - Materials & Physics: 磁鎖收回速度 0.4s，摩擦係數 0.35；護腕金屬度 0.6 粗糙度 0.25；2D / 3D Layering：護腕=2D，磁鎖火花=3D 粒子 toon，霧=3D；
+    - Emotion & Performance: 烈手指微收，放鬆；
+    - Audio & Transition: 磁鎖吸附 1.1kHz，短暫無聲過渡；硬切。
+  - Angle 3:
+    - Camera: 24mm 低角 20cm 離地，仰視碎冰落下並在畫面前方散焦；
+    - Lighting: 霧中散射，紅光餘暈；
+    - Materials & Physics: 碎冰尺寸 0.5–1cm，落速 2.5 m/s，鏡頭前 2–6px 視差；2D / 3D Layering：碎冰=3D 粒子 toon，視差線=2D，角色=2D；
+    - Emotion & Performance: 烈身影被紅光勾勒，冷靜站立；
+    - Audio & Transition: 碎冰敲地 1.2kHz，遠處警笛 1kHz 淡入；硬切。
+- Beat C (T13.2–15.0s): 收束與餘韻
+  - Angle 1:
+    - Camera: 35mm 拉遠 1.2m 展示空月台與凍結列車；
+    - Lighting: 冷光回到 5200K 基礎，紅光逐漸熄滅；
+    - Materials & Physics: 冰霧密度降至 0.04；地面水汽蒸發形成 0.5mm 水珠；2D / 3D Layering：環境=3D 投影+2D 描邊，霧=3D，角色=2D；
+    - Emotion & Performance: 烈調整呼吸，肩膀放鬆，嘴角微挑；
+    - Audio & Transition: BGM 收束，字幕「まだ凍らせ足りねぇか？」；硬切。
+  - Angle 2:
+    - Camera: 50mm 半身特寫，烈看向鏡頭外左方；
+    - Lighting: 冷 rim 6500K，臉部 cel shading 2 階；
+    - Materials & Physics: 爆紋降至 200 nits；汗珠 0.4mm 滑落；呼氣形成 0.2mm 白霧；2D / 3D Layering：臉與身體=2D，霧=3D；
+    - Emotion & Performance: 烈低沉呼吸，眼神仍警戒；
+    - Audio & Transition: 呼吸 400Hz，遠處警笛 1kHz；硬切。
+  - Angle 3:
+    - Camera: 75mm 特寫指縫間最後一張紅牌燃成光灰；
+    - Lighting: 光灰 700 nits，rim 光強調指節；
+    - Materials & Physics: 光灰粒徑 0.15mm，飄落速度 0.3 m/s；描邊 1.1px；2D / 3D Layering：手=2D，灰燼=3D 粒子 toon 疊 2D 網點；
+    - Emotion & Performance: 烈手指微張，灰燼消散；
+    - Audio & Transition: 灰燼撒落沙沙聲 2kHz，畫面淡出。
+
+## Platform Layer
+- Hook A (故事向 0–1s): T0 烈踏入冰封月台，低語「氷なんかに、この街は渡さない」，紅牌閃亮；字幕疊上紅白描邊，速度線輕量。
+- Hook B (衝擊向 0–1s): T0.9 第一張紅牌插冰爆裂，冰牆炸出裂紋，字幕「ドン」佔畫面，音效低頻 55Hz。
+- Caption 建議: 「紅牌爆紋術士 vs 冰獄群魔｜15秒爆裂」；日英混用「Crimson Cards vs Frost Horde」；保持 20 字內。
+- 縮圖構圖: 烈持紅牌站在冰霧月台中央，背後冰怪輪廓模糊，紅藍對比，字幕「爆裂」日文描邊。
+- Hashtag: #鋼川烈 #紅牌爆紋 #FrostHorde #2Dアニメ #爆裂連鎖
+- CTA: 最後 1.2s 保留空間放置「Tap for more」或「查看更多爆紋戰」文字，位置右下不遮臉。
+- 切片輸出策略: 0–3s 作為預告剪影版；7–12s 漫畫化爆破作為衝擊版；字幕與擬聲位置預留安全框 10%。
+
+## Negative Instructions
+- 禁用真實商標、名人、宗教或政治符號；無血腥斷肢或寫實內臟。
+- 避免魚眼、360° 繞拍、過度鏡頭旋轉；禁止全屏 bloom 或過曝。
+- 風格上禁止童話粉彩、霓虹派對風、超寫實 PBR 效果；確保 2D 漫畫線條與 cel shading 一致。
+- 字幕避免錯字與錯語言環境，保持日語擬聲與中日混用口號；音訊避免刺耳高頻 >10kHz 持續。
+- 防止未授權角色或品牌出現；避免 PG-13 以上尺度；無煙草/酒精宣傳。
+
+## Assumptions
+- 假設上一集戰鬥已移動至高架月台，敵人轉為冰與黑霧混合的群魔，未提供具體數量，採用 10–14 頭以維持畫面密度。
+- 假設鋼川烈仍保有 30 張紅牌上限，且戰鬥服與口頭禪延續系列設定；如有不同需求需另行提供。
+- 假設目標平台仍為 9:16 短影音，無需額外字幕語言版本；若需長版請提出。
+- 假設音樂風格沿用低頻鼓點+金屬顫音的混合；未指定歌詞，因此僅使用器樂與擬聲字。
+- 假設所有 3D 元素僅作 FX 參考，最終以 2D 描邊回收，符合 2D Anime x 3D FX 規範。
+
+## AGENT Self-Check
+- 結構完整度: 已包含 `_core`、`_stylepacks`、Technical Specs、Master Prompt、Acts/Beats/Angles（12 幕 × 約 1.2s）、Platform Layer、Negative Instructions、Assumptions、Self-Check，時間軸標註 T0–15s。
+- 敘事一致性: 故事從冰封月台導入→冰獄群魔現形→紅牌連射→漫畫化連鎖爆裂→收束呼吸，全程保持鋼川烈角色語氣與世界觀一致，延續上一集鏡頭軸線。
+- 視聽細節: 每個角度標註鏡頭焦段、機位、運鏡；光影色溫與強度；聲音包含台詞、環境音、擬聲字；轉場方式（硬切/蒸汽 wipe/匹配剪接）。
+- 風格準確性: 套用「Crimson Sigil Burst」與「Frosted Rail Nocturne」，避免與童話粉彩等衝突風格混用；漫畫化高潮已標註網點、描邊、速度線與擬聲字。
+- 格式精準度: 檔名與路徑遵守 `飛刃爆紋・鋼川烈/2025-11-25_ep3-crimson-card-ice-siege/prompt.md`；標題層級 Act → Beat → Angle 明確，縮排以破折與分號整理。
+- 2D Anime Consistency vs 3D FX: 角色、卡牌、主要輪廓全部 2D；3D 僅用於冰霧、爆煙、碎冰、鋼梁參考，且均以 toon 化與 2D 描邊回收；如有 3D 過寫實，已在分鏡中限制密度、描邊與視差。
+- 物理質感到位: 各角度標註重力/慣性（卡牌初速、爆炸半徑、碎片速度）、摩擦係數、折射率、SSS、金屬度/粗糙度、粒徑與光學效果；爆炸與霧的粒子設定與能量分配具體化。
+- 量化標記度: 每幕加入時間 T0–T15s，角度列出速度、角度、尺寸、亮度、粒徑與密度；速度線密度、描邊厚度、爆紋亮度均量化，避免模糊詞。
+- 可交付性: Platform Layer 提供 Hook A/B、縮圖、Hashtag、CTA、切片策略；Negative Instructions 完整；Self-Check 揭露假設並重申 3D FX 受限。
+- 路徑紀錄: 實際輸出路徑 `projects/飛刃爆紋・鋼川烈/2025-11-25_ep3-crimson-card-ice-siege/prompt.md`，日期依 UTC+8 = 2025-11-25。
+
+### Micro-actions & Timecoded Execution Notes
+- Act 1 Micro-actions (T0–3.6s):
+  - T0: 烈踏上冰層，腳跟壓裂 2cm 冰面，碎片飛散 0.4m，高度 4cm，摩擦係數 0.35；2D / 3D Layering：腳步=2D，碎冰=3D 粒子 toon，速度線=2D。
+  - T0+0.3s: 指尖彈動紅牌，卡牌旋轉 14 rps，軌跡由 0.8px 速度線表示；磁鎖聲 7.8kHz；bokeh 簡化 6 邊形，無寫實散景。
+  - T0+0.6s: 冰霧由裂縫湧出，粒徑 0.2–0.5mm，密度 0.08，向上 0.3 m/s；霧經過爆紋光折射 0.6%，在 2D 漫畫線條下保留 toon 階梯。
+  - T1.2s: 冰巨獸落地產生 0.9m 波紋，冰面彈性 0.15，慣性帶動碎冰向外 3 m/s；鏡頭保持 35mm，避免視差過大。
+  - T1.5s: 人形冰怪聚集，胸口藍光脈衝 6Hz，亮度 900 nits；2D 描邊保持 1.0px，避免過粗遮蓋表情。
+  - T2.0s: 冰矛開始凝結，霧在矛尖周圍形成 0.2m 旋渦；PBR 金屬度 0.25 粗糙度 0.6，仍以 cel shading 條帶呈現。
+  - T2.4s: 第一張紅牌彈出，卡牌邊緣紅光 1600 nits，軌跡落點標記 0.8m 放射裂紋；2D/3D 層次保持角色最上層。
+  - T3.0s: 爆炸前 0.2s 預熱，冰霧透過熱波偏折 0.5%，鏡頭增加 0.3px 速度線；音效低頻 60Hz 預告。
+- Act 2 Micro-actions (T3.6–7.2s):
+  - T3.6s: 冰矛齊射 4 支，時間差 0.1s，每支矛質量 1.2kg，受重力 9.8 m/s²，拖尾霧透明度 70%；鏡頭平移 0.9m 避免矛尖直衝鏡頭。
+  - T3.9s: 烈滑步 1.1m，鞋底與冰面摩擦熱 0.3°C，但畫面仍以 2D 色塊呈現；速度線方向與移動一致。
+  - T4.2s: 手掌拍擊冰矛尾端，接觸面摩擦係數 0.45，冰矛碎片 3–5cm 旋轉 600°/s；碎片以 toon 亮度階 2 階呈現。
+  - T4.8s: 烈連射 8 張卡牌，間隔 0.08s，形成光弧；磁鎖聲連續 7.8kHz；卡牌軌跡厚度 0.4cm。
+  - T5.1s: 卡牌穿過鋼梁縫隙，梁金屬度 0.6 粗糙度 0.35，鏡頭保持 24mm 仰角，描邊 1.0px；避免 3D 鏡頭旋轉。
+  - T5.4s: 第一張卡牌貼合冰巨獸核心，吸附力 30N，能量擴散 0.5m；核心藍光被紅光覆蓋，色偏 #b51224。
+  - T6.0s: 近身拳擊，拳速 6 m/s，碰撞彈性 0.12，碎冰噴射角 45°；2D 速度線增至 22 條/秒強調力量。
+  - T6.8s: 彈射卡牌擊中膝蓋，角速度 16 rps，震波 2cm 位移；碎片慣性 4 m/s，霧密度暫降至 0.06 露出關節。
+- Act 3 Micro-actions (T7.2–10.8s):
+  - T7.2s: 冰怪合圍半徑 3m，黑霧密度 0.09，風速 1.1 m/s 將霧帶向左；rim 光在霧粒形成 0.2px 光暈。
+  - T7.5s: 烈深吸氣，胸腔抬升 1.5cm，呼吸白霧濃度 0.07，向前 0.3m；心率 72 bpm 與爆紋閃爍同步。
+  - T8.0s: 漫畫分格開始，描邊加粗至 1.2px，網點 0.9px；卡牌尾跡速度線 26 條/秒；bokeh 改為純色塊，移除真實散景。
+  - T8.4s: 連射 6 張卡牌標記不同怪物，吸附點各自閃 1700 nits；字幕「ドドド」隨卡牌節奏跳動。
+  - T9.0s: 卡牌陣列半徑擴張至 0.6m，旋轉 200°/s；磁場在冰面形成 0.5mm 細微震紋，以 2D 波紋線表現。
+  - T9.3s: 冰怪核心光與紅光互相干涉，藍光下降 30%，紅光增至 1900 nits；霧粒折射率 1.31 保留。
+  - T9.6s: 烈口型低聲咒語，口腔內部陰影 2 階 cel shading，呼吸霧顆粒 0.2mm；鏡頭 50mm 稍推 0.2m。
+  - T10.2s: 卡牌暫停半拍，磁鎖震幅 0.2mm，鏡頭保持軸向一致，準備引爆。
+- Act 4 Micro-actions (T10.8–15.0s):
+  - T10.8s: 所有紅牌同時射出紅色軌跡，飛行速度 18 m/s，尾跡透明度 70%，厚度 0.6cm；2D 速度線疊加 24 條/秒。
+  - T11.0s: 連鎖爆炸第一輪，衝擊波 2.5m 半徑，速度 9 m/s，冰片直徑 1–3cm，慣性 5 m/s；霧被蒸散，透明度降至 40%。
+  - T11.4s: 第二輪爆炸衝擊波與鋼梁碰撞，梁彈性 0.1 形成 0.3cm 微震；rim 光在梁邊反射紅光。
+  - T11.8s: 漫畫分格特寫卡牌燃成光灰，灰燼粒徑 0.2mm，飄落 0.4 m/s；網點維持 0.9px；擬聲「バラバラ」。
+  - T12.0s: 蒸汽翻騰，密度 0.06，向上 0.7 m/s；鏡頭 35mm 平移 0.7m；碎冰掉落 2.5 m/s，視差 2–6px。
+  - T12.6s: 護腕磁鎖收回卡牌，金屬度 0.6 粗糙度 0.25，吸附聲 1.1kHz；描邊 1.0px 保持輪廓清晰。
+  - T13.2s: 碎冰落地，摩擦係數 0.35，撞擊音 1.2kHz；霧密度降至 0.04；背景警笛 1kHz 淡入。
+  - T13.8s: 烈拉遠中景，肩膀放鬆，爆紋降至 200 nits；呼吸霧 0.2mm；鏡頭 35mm 拉遠 1.2m 顯示空場。
+  - T14.4s: 指縫紅牌燃成光灰，灰燼粒徑 0.15mm，落速 0.3 m/s；光灰亮度 700 nits 在 0.6s 內衰減；字幕 CTA 空間預留 20%。
+  - T15.0s: 畫面淡出，黑底保留 0.3s 供平台 CTA；音效低頻收束至 -12dB，維持整體 PG-13 範圍。
+
+### Materials & Physics Deep Dive
+- 地面冰層材質:
+  - Base Color/Albedo: #8fc7ff，法線細節 0.12mm；Subsurface: 0.04 讓光微透；表層鏡面反射粗糙度 0.12，菲涅耳 0.06；受紅光照射時反射偏紅 #d43a4a。
+  - 摩擦係數 0.35，彈性 0.15，撞擊時能量 60% 轉為碎片動能，40% 轉為熱與聲音；碎片平均厚 2–4mm；冰片邊緣以 2D 描線回收，避免寫實。
+- 鋼梁與廣告牌:
+  - Base Color: #4b4f56，金屬度 0.6，粗糙度 0.35；霜花晶粒 0.15mm 覆蓋 30% 面積；鏽蝕顏色 #9c4c38 以 2D 斑點呈現；AO 0.55。
+  - 2D / 3D Layering: 鋼梁以 3D 投影提供透視，最終用 1.0px 描邊回收；霜花使用 3D 粒子烘焙後以 2D 網點表現，避免高光過寫實。
+- 冰獄群魔肌理:
+  - Base Ice: 折射率 1.31，顆粒 0.4mm；粗糙度 0.16；裂縫內黑霧金屬度 0.15；骨刺處金屬度 0.25，粗糙度 0.65；
+  - 光學: 胸口核心 900 nits 藍光，散射半徑 0.2m；爆炸時核心被紅光覆蓋，藍光下降 30%；所有反射以 toon 階段分兩階，避免真實鏡面。
+- 紅牌材質與能量:
+  - Base 材質為強化複合纖維，albedo #b51224，法線刻紋 0.15mm；邊緣金屬度 0.7 粗糙度 0.2；emissive 1400–1900 nits；
+  - 2D / 3D Layering: 卡牌線稿 2D，若使用 3D base 僅作位置參考，最終以 cel shading 描邊 1.0–1.2px；尾跡粒子 0.4–0.8mm 3D toon 疊加。
+- 光學行為:
+  - 主光 5200K 與爆紋 620nm 形成紅藍對比，冰面反射紅光時亮度 +12%；霧散射係數 0.08，吸收係數 0.03；
+  - 景深: 主體景深 0.6–0.9m，背景霧僅輕度散焦；bokeh 6 邊形，半徑 3px；避免寫實散景拖尾。
+- 粒子與求解:
+  - 冰霧 VDB 求解粒徑 0.2–0.5mm，粒子上限 42k；爆煙粒徑 0.4–0.9mm，透明度 60–80%；
+  - 冰碎片 3D 粒子 1–3cm，碰撞摩擦 0.35，彈性 0.15；爆炸時計算預估成本 1e5 粒子級；
+  - FX Solver & Budget: 霧與煙採 VDB，粒子數在 4e4–1e5；卡牌尾跡採 GPU 粒子，預估中等成本；所有特效 toon 光照限制陰影 1–2 階。
+- 布料與護腕:
+  - 上衣布料紋理密度 600D，纖維走向沿手臂縱向；磨損集中在肩膀與肘部，法線 0.1mm；
+  - 護腕金屬度 0.6 粗糙度 0.25，指紋油膜 0.03；碰撞時描邊保持 1.0px，避免高光刺眼。
+- 力學與反應:
+  - 烈每次揮臂產生角速度 420°/s，帶動爆紋亮度提升 300 nits；衝擊後二次運動：衣襬延遲 0.2s 擺動，幅度 6cm；
+  - 冰怪被擊中後，冰片飛散方向以法線 45° 偏向鏡頭，速度 3–5 m/s；黑霧殘留 0.5s 再消散，透明度降至 40%。
+
+### Platform Continuity Notes
+- Platform Safety: 全程 PG-13，無血腥，冰碎片與黑霧替代血液；字幕保持中日混用，未使用敏感詞。
+- Caption Sync: Hook A/B 字幕在 T0–1s 出現，字體白底紅描邊 2px，陰影 30% 透明度；避免遮臉，位於上三分之一。
+- Audio Mix: 低頻鼓點 -6dB，爆炸低頻 50–70Hz；語音保持 -3dB 峰值；高頻限制 <10kHz 避免刺耳。
+- Compression Safeguards: 尾跡與霧使用 5% dither 防 banding；字幕安全框 10%；速度線與網點避免莫亞。
+- Platform Hook Testing: 0–3s 版本用於預告，7–12s 用於爆裂剪，兩版皆保留 CTA 文字；保持 24fps 不插值。
+- Camera Continuity: 維持 180 度軸，鏡頭平移/推拉，不使用 360° 或大幅繞拍；若需轉軸，需以匹配剪接 + 蒸汽 wipe 過渡。
+- 2D / 3D Compliance: 角色與卡牌線稿始終 2D；3D 僅用於冰霧、爆煙、碎冰與環境透視；每個 Angle 已列 2D / 3D Layering，避免寫實衝突。
+- QA Reminder: 最終輸出前檢查爆紋亮度不超過 2000 nits，避免過曝；冰霧密度控制 <0.1；描邊 0.8–1.2px 隨景深變化。
+- Continuity Hook: 延續前集鏡頭軸與色調，紅牌爆紋語彙與口頭禪保持一致，方便觀眾辨識系列連結。
+- Final QC: 確認所有時間碼與鏡頭焦段對應，字幕與擬聲字遵守安全框，2D/3D 標註無遺漏。
+- Export Reminder: 24fps、GOP24、bitrate 20Mbps，提交前跑一次無聲版檢查壓縮細節。
