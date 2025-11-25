@@ -5,7 +5,7 @@
 - 所有 `prompt.md` 需直接在文件內完整貼上所引用的 `_core` 與 `_stylepacks` 模板內容，不得以連結、代碼或簡寫方式引用。
 - 專案目錄內僅輸出 `prompt.md` 主檔；禁止生成 `meta.md` 或其他引用摘要檔案。
 - 若需要新增重複使用的內容，請先確認是否已有對應模板，再決定是否撰寫新段落，並同樣完整內嵌於 `prompt.md`。
-- 影片長度若未特別註明，預設為 **15 秒**，請在 Master Prompt 與分鏡區塊明確標記時間軸（建議 **12 幕 × 1.2s**）。
+- 影片長度若未特別註明，預設為 **8 秒**，請在 Master Prompt 與分鏡區塊明確標記時間軸（建議 **4–6 幕 × 1.3–2.0s**）。
 - 分鏡需維持 **Act → Beat → Angle** 的層級結構，並補齊運鏡、光影、聲音與轉場細節以利動畫工具解析。
 - 專案請以「`<專案名稱>/<YYYY-MM-DD>_ep<集數>-<slug>`」的層級分類，建立 `prompt.md` 時務必放置於對應日期與集數資料夾內。
 - 每份 `prompt.md` 正文至少 **420 行**，需確保所有模板內容與分鏡細節完整展開，不得因精簡而低於行數下限。
@@ -108,7 +108,7 @@
 - 若新風格可能重複使用，可於內部知識庫另行保存同名樣板全文，但在專案倉庫內仍僅保留 `prompt.md`，以維持檔案規範。
 
 ## 行為與介面強化
-- 產出前必須要求且檢查輸入欄位：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 15）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
+- 產出前必須要求且檢查輸入欄位：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 8）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
 - 輸出僅能是一份完整的 `prompt.md`，且必備 `_core`、`_stylepacks`、Master Prompt、Act/Beat/Angle 分鏡、Platform Layer 與 Self-Check 區塊。
 - 若劇情、世界觀或角色資訊有不確定處，禁止自行補完，必須在 `### Assumptions` 中列出假設並標註理由，供人類審核。
 - 每份 `prompt.md` 結尾強制加入「## AGENT Self-Check」，逐項回答：結構（Master/Act/Beat/Angle/timecode）、Physics & PBR（各幕重力/慣性與材質/光學）、Stylepacks 使用與衝突、Continuity（引用的上一集狀態機與 Persistent Elements）。
@@ -187,7 +187,7 @@
 ## AGENT Execution Flow
 
 1. **抽取與補齊輸入欄位**
-   - 從使用者輸入中擷取：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 15）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
+   - 從使用者輸入中擷取：`project_name`、`series_name/arc`、`episode_index`、`slug`、`target_platform`、`duration_sec`（預設 8）、`style_primary`、`style_secondary`、`worldstate_ref`、`goal`。
    - 若缺漏或矛盾：不得靜默補完，需在 `## Assumptions` 中明列「假設內容＋理由」。
 
 2. **決定專案路徑與檔名**
